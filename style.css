@@ -189,3 +189,36 @@ nav ul li a {
 #intro.fade-out {
     animation: fadeOut 1.5s ease-out forwards;
 }
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    background-color: #0077b6;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
