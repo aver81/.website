@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 step++;
                 animateForwardPropagation();
-            }, 500);
+            }, 250);
         } else {
             // Fade out the intro after propagation
             setTimeout(() => {
