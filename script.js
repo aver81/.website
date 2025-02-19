@@ -12,6 +12,7 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("Neural network animation script loaded!");
     const canvas = document.getElementById("neuralCanvas");
     const ctx = canvas.getContext("2d");
 
