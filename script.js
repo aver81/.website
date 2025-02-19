@@ -158,3 +158,20 @@ document.addEventListener("scroll", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    function revealFlowBlocks() {
+        let blocks = document.querySelectorAll(".experience-card");
+        let windowHeight = window.innerHeight;
+
+        blocks.forEach(block => {
+            let blockTop = block.getBoundingClientRect().top;
+            if (blockTop < windowHeight - 100) {
+                block.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealFlowBlocks);
+    revealFlowBlocks(); // Run on load
+});
