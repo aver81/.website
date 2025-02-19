@@ -13,7 +13,60 @@ header {
     padding: 20px;
 }
 
-/* Improved Section Headings */
+/* Ensure the animation fully covers the screen */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Ensure it stays on top */
+}
+
+/* Ensure the neural network canvas remains fullscreen */
+#neuralCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Typing text animation */
+.intro-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+}
+
+/* Keep the neural network as the background after the animation completes */
+#intro.transparent-intro {
+    background: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Smooth Fade-out Effect */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+#intro.fade-out {
+    animation: fadeOut 1.5s ease-out forwards;
+}
+
+/* Enhanced Section Headings */
 h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -48,48 +101,6 @@ h2::after {
 /* Glowing effect on hover */
 h2:hover::after {
     box-shadow: 0px 0px 10px #48cae4;
-}
-
-/* Smooth Fade-in Effect */
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Typewriter Animation */
-.typewriter {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid;
-    width: 0;
-    animation: typing 3s steps(30, end) forwards;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100% }
-}
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    padding: 0;
-    background: #004080;
-}
-
-nav ul li {
-    display: inline;
-    margin: 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
 }
 
 /* Flow Diagram Layout for Experience */
