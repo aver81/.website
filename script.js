@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Typing Animation
-    const text = "Neural Resume Loading..";
+    
     let index = 0;
     function typeEffect() {
         if (index < text.length) {
