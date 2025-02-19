@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Typing Animation
-    const text = "Forward Propagating AI Model...";
+    const text = "Aayush's Website";
     let index = 0;
     function typeEffect() {
         if (index < text.length) {
