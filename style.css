@@ -371,3 +371,23 @@ nav ul li a {
     padding-top: 50px;
     padding-bottom: 100px;
 }
+
+@media (max-width: 768px) {
+    #skills, #experience, #projects, #contact {
+        margin-bottom: 80px; /* Reduce gap slightly for mobile screens */
+    }
+
+    .flow-container {
+        padding-bottom: 80px;
+    }
+
+    .projects-container {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+
+    #contact {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+}
