@@ -86,3 +86,21 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 1500);
     }, 5000);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function revealTimeline() {
+        let items = document.querySelectorAll(".timeline-item");
+        let windowHeight = window.innerHeight;
+
+        items.forEach(item => {
+            let itemTop = item.getBoundingClientRect().top;
+            if (itemTop < windowHeight - 50) {
+                item.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealTimeline);
+    revealTimeline(); // Run on load
+});
