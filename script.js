@@ -104,3 +104,17 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", revealTimeline);
     revealTimeline(); // Run on load
 });
+
+document.addEventListener("scroll", function () {
+    let sections = document.querySelectorAll("section");
+    let sidebarLinks = document.querySelectorAll(".sidebar ul li a");
+
+    sections.forEach((section, index) => {
+        let rect = section.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+            sidebarLinks.forEach(link => link.classList.remove("active"));
+            sidebarLinks[index].classList.add("active");
+        }
+    });
+});
+
