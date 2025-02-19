@@ -294,3 +294,60 @@ nav ul li a {
 .sidebar ul li a:hover {
     color: #48cae4;
 }
+
+
+.flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 50px 0;
+}
+
+.flow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+.experience-card {
+    width: 50%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+}
+
+/* Connector between experiences */
+.connector {
+    width: 5px;
+    height: 50px;
+    background-color: #0077b6;
+    position: relative;
+    margin: 10px 0;
+}
+
+/* Connector Animation */
+@keyframes connectorGrow {
+    from { height: 0; }
+    to { height: 50px; }
+}
+
+.connector {
+    animation: connectorGrow 1s ease-in-out;
+}
+
+/* Animated Hover Effect */
+.experience-card:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
