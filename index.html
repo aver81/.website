@@ -1,35 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - John Smith</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Verma | Data Scientist</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Portfolio</h1>
+
+    <header>
+        <h1 class="fade-in">Aayush Verma</h1>
+        <p class="typewriter">Data Scientist | AI & ML Enthusiast | Problem Solver</p>
+        <button id="theme-toggle">🌙 Dark Mode</button>
+    </header>
+
     <nav>
-      <a href="about.html">About Me</a>
-      <a href="#projects">Projects</a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <section id="intro">
-    <h2>About Me</h2>
-    <p>I'm a data scientist with 3+ years of experience in analytics, machine learning, and software development...</p>
-  </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Aayush, a passionate data scientist with experience in predictive modeling, machine learning, and analytics-driven decision-making.</p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="projects/project1.html">Project 1: Adaptive Default Detection Meta-Model</a></li>
-      <li><a href="projects/project2.html">Project 2: Trading Operations Automation</a></li>
-    </ul>
-  </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+            <p>Python & ML</p>
+            <div class="bar"><div class="progress python"></div></div>
+        </div>
+        <div class="skill">
+            <p>SQL & Databases</p>
+            <div class="bar"><div class="progress sql"></div></div>
+        </div>
+        <div class="skill">
+            <p>Data Visualization</p>
+            <div class="bar"><div class="progress viz"></div></div>
+        </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Aayush Verma. All Rights Reserved.</p>
-  </footer>
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>Mu Sigma Inc. (2022 - 2024)</h3>
+                <p>Developed predictive inventory replenishment ETL pipelines using Python, SQL, and PySpark.</p>
+            </div>
+            <div class="event">
+                <h3>TCS (2020 - 2021)</h3>
+                <p>Refined digital infrastructure for India's largest banks, reducing loading time by 10%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>Loan Defaulter Detection</h3>
+                <p>Developed a meta-classifier for predicting loan defaulters using CatBoost and SVM.</p>
+            </div>
+            <div class="project-card">
+                <h3>Predictive Maintenance</h3>
+                <p>Created MCare, a real-time sensor-based predictive maintenance system.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>📧 Email: <a href="mailto:aver23@umd.edu">aver23@umd.edu</a></p>
+        <p>🔗 <a href="https://linkedin.com/in/aayushverma1" target="_blank">LinkedIn</a></p>
+        <p>💻 <a href="https://github.com/aver81" target="_blank">GitHub</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Aayush Verma</p>
+    </footer>
+
 </body>
 </html>
