@@ -11,7 +11,8 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
 });
 
-   document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    // Formula 1 Animation
     const f1Car = document.getElementById("f1-container");
 
     // Add class to trigger animation
@@ -26,28 +27,24 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
             document.getElementById("intro").style.display = "none";
         }, 1500);
     }, 2000); // Ensure enough time for animation before fading out
-});
 
-    
-  
+    // Reveal Timeline Animation on Scroll
+    function revealTimeline() {
+        let items = document.querySelectorAll(".timeline-item");
+        let windowHeight = window.innerHeight;
+
+        items.forEach(item => {
+            let itemTop = item.getBoundingClientRect().top;
+            if (itemTop < windowHeight - 50) {
+                item.classList.add("visible");
+            }
+        });
+    }
+
     window.addEventListener("scroll", revealTimeline);
     revealTimeline(); // Run on load
-});
 
-document.addEventListener("scroll", function () {
-    let sections = document.querySelectorAll("section");
-    let sidebarLinks = document.querySelectorAll(".sidebar ul li a");
-
-    sections.forEach((section, index) => {
-        let rect = section.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
-            sidebarLinks.forEach(link => link.classList.remove("active"));
-            sidebarLinks[index].classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Reveal Flow Blocks Animation on Scroll
     function revealFlowBlocks() {
         let blocks = document.querySelectorAll(".experience-card");
         let windowHeight = window.innerHeight;
@@ -62,4 +59,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", revealFlowBlocks);
     revealFlowBlocks(); // Run on load
+});
+
+// Sidebar Scroll Highlighting
+document.addEventListener("scroll", function () {
+    let sections = document.querySelectorAll("section");
+    let sidebarLinks = document.querySelectorAll(".sidebar ul li a");
+
+    sections.forEach((section, index) => {
+        let rect = section.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+            sidebarLinks.forEach(link => link.classList.remove("active"));
+            sidebarLinks[index].classList.add("active");
+        }
+    });
 });
