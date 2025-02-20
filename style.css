@@ -1,178 +1,185 @@
-/* General Styling */
-body {
-    font-family: 'Poppins', sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Professional Font & Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212; /* Dark theme background */
     color: white;
     text-align: center;
     overflow-x: hidden;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+/* Header Styling */
+header {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 /* Navbar */
 nav {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
     z-index: 1000;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
     justify-content: center;
+    gap: 30px;
 }
 
 nav ul li {
-    margin: 0 20px;
+    display: inline;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
     color: #48cae4;
+    border-bottom: 3px solid #48cae4;
 }
 
 /* Section Styling */
 section {
-    padding: 80px 15%;
-    margin-top: 50px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent for readability */
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Heading Styling */
+/* Section Headings */
 h2 {
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
     color: #48cae4;
-    font-family: 'Poppins', sans-serif;
-    animation: fadeIn 1s ease-in-out;
+    border-bottom: 2px solid #48cae4;
+    display: inline-block;
 }
 
-/* Experience Section - Timeline Layout */
+/* About Section */
+#about p {
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 10px 20px;
+}
+
+/* Skills Section - Flexbox Layout */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-card:hover {
+    transform: scale(1.1);
+    background: rgba(72, 202, 228, 0.2);
+}
+
+/* Work Experience - Timeline Layout */
 .flow-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    gap: 40px;
     padding: 50px 0;
 }
 
-.flow-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 80%;
-    margin-bottom: 60px;
-}
-
 .experience-card {
-    width: 60%;
-    background: white;
-    color: black;
-    padding: 25px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
     border-radius: 10px;
+    width: 60%;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    text-align: center;
-    font-size: 18px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .experience-card:hover {
     transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+    background: rgba(72, 202, 228, 0.2);
 }
 
-/* Styled Project Grid */
+/* Projects Section - Grid Layout */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     justify-items: center;
+    margin-top: 30px;
 }
 
-/* Project Cards */
 .project-card {
-    width: 300px;
-    height: 180px;
-    perspective: 1000px;
-    background: #0077b6;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.5s ease-in-out;
+    width: 250px;
+    height: 160px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .project-card:hover {
     transform: scale(1.05);
-}
-
-.project-card h3 {
-    color: white;
-}
-
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-    color: #48cae4;
+    background: rgba(72, 202, 228, 0.2);
 }
 
 /* Footer */
 footer {
-    text-align: center;
     padding: 20px;
-    font-size: 14px;
-    color: #ddd;
-    background: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
 }
 
-/* Dark Mode Support */
+/* Dark Mode */
 .dark-mode {
-    background: #111;
-    color: #ddd;
+    background: #222;
+    color: white;
+}
+
+.dark-mode nav {
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.dark-mode section {
+    background: rgba(20, 20, 20, 0.85);
 }
