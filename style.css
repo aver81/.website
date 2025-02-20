@@ -184,17 +184,6 @@ body {
     line-height: 1.5;
 }
 
-/* Solid Circle Nodes (Now Properly Positioned ON the Line) */
-.experience-node {
-    position: absolute;
-    left: 30%;
-    transform: translateX(-30%);
-    width: 15px;
-    height: 15px;
-    background-color: #0077b6;
-    border-radius: 50%; 
-    z-index: 2;
-}
 
 /* Properly Position the Circles Adjacent to Each Experience */
 .experience-box:nth-child(odd) .experience-node {
