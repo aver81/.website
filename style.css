@@ -243,6 +243,7 @@ body {
     justify-content: space-between;
     align-items: stretch;
     gap: 20px; /* Space between projects */
+    top: 10;
 }
 
 /* Individual Project Cards */
