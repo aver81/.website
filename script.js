@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         radius: 10,
         color: "red",
         velocity: 0,
-        learningRate: 0.1, // Adjusted for smooth descent
+        learningRate: 0.3,  // Increased learning rate for faster movement
+        acceleration: 1.2   // Multiplier to speed up movement
     };
 
     let running = true; // Controls animation flow
@@ -60,12 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!running) return;
 
         let gradient = Math.cos(ball.x); // Derivative of sin(x) is cos(x)
-        ball.velocity = -ball.learningRate * gradient;
+        ball.velocity = -ball.learningRate * gradient * ball.acceleration; // Apply acceleration
         ball.x += ball.velocity;
         ball.y = costFunction(ball.x);
 
         // Stop animation when movement is minimal
-        if (Math.abs(ball.velocity) < 0.001) running = false;
+        if (Math.abs(ball.velocity) < 0.01) running = false;
     }
 
     // Animation Loop
@@ -83,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("intro").style.display = "none";
                     document.body.style.overflow = "auto";
                 }, 1500);
-            }, 1000);
+            }, 500);
         }
     }
 
