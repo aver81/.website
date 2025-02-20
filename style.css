@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #121212; /* Dark theme */
-    color: white;
+    background: #ffffff; /* White theme */
+    color: blue;
     text-align: center;
     overflow-x: hidden;
 }
