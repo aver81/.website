@@ -140,12 +140,12 @@ body {
 /* Vertical Line Running Through the Experiences */
 .experience-line {
     position: absolute;
-    left: 30px;
+    left: 50px;
     top: 0;
     width: 5px;
     height: 100%;
     background-color: #0077b6;
-    z-index: -1;
+    z-index: 1;
 }
 
 /* Individual Experience Box */
@@ -186,4 +186,19 @@ body {
 .experience-node {
     width: 15px;
     height: 15px;
-    backgrou
+    background-color: #0077b6;
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .experience-box {
+        width: 80%;
+    }
+
+    .experience-line {
+        left: 15px;
+    }
+}
