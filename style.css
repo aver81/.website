@@ -1,40 +1,178 @@
-/* Ensure the Neural Network Animation is full-screen */
-#intro {
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+/* Navbar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100vh;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0;
     z-index: 1000;
 }
 
-/* Neural Network Canvas */
-#neuralCanvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
-/* Ocean Background Animation */
-#oceanCanvas {
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #48cae4;
+}
+
+/* Section Styling */
+section {
+    padding: 80px 15%;
+    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent for readability */
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading Styling */
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    color: #48cae4;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Experience Section - Timeline Layout */
+.flow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 50px 0;
+}
+
+.flow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin-bottom: 60px;
+}
+
+.experience-card {
+    width: 60%;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Styled Project Grid */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+    justify-items: center;
+}
+
+/* Project Cards */
+.project-card {
+    width: 300px;
+    height: 180px;
+    perspective: 1000px;
+    background: #0077b6;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1; /* Keep it behind content */
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
 }
 
-/* Fade-out effect after Neural Network Animation */
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+.sidebar ul {
+    list-style: none;
+    padding: 0;
 }
 
-#intro.fade-out {
-    animation: fadeOut 1.5s ease-out forwards;
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #48cae4;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #ddd;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Dark Mode Support */
+.dark-mode {
+    background: #111;
+    color: #ddd;
 }
