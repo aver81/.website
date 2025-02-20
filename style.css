@@ -190,3 +190,18 @@ h2:hover::after {
     color: black;
     transform: rotateY(180deg);
 }
+/* Gradient Container */
+.gradient-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a, #000); /* Dark gradient background */
+}
+
+/* Canvas Styling */
+#sineWaveCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
