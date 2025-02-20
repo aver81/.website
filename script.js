@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 step++;
                 animateForwardPropagation();
-            }, 300);
+            }, 150);
         } else {
             setTimeout(() => {
                 document.getElementById("intro").classList.add("fade-out");
