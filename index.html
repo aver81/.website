@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aayush Verma | Data Scientist</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-   <section id="intro">
-    <div class="gradient-container">
-        <canvas id="gradientCanvas"></canvas>
-    </div>
-    <div class="intro-text">
-        <h1>Gradient Descent in Action</h1>
-    </div>
-</section>
 
-    
+    <!-- Gradient Descent Animation -->
+    <section id="intro">
+        <div class="gradient-container">
+            <canvas id="gradientCanvas"></canvas>
+        </div>
+        <div class="intro-text">
+            <h1>Gradient Descent in Action</h1>
+        </div>
+    </section>
 
+    <!-- Sidebar Navigation -->
     <div class="sidebar">
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <header>
         <h1 class="fade-in">Aayush Verma</h1>
@@ -46,109 +47,107 @@
         </ul>
     </nav>
 
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
         <p>Hello! I'm Aayush, a passionate data scientist with experience in predictive modeling, machine learning, and analytics-driven decision-making.</p>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <div class="skill-card">
-            <div class="card-front">Python & Machine Learning</div>
-            <div class="card-back">
-                <p>NumPy, Pandas, scikit-learn, TensorFlow, PyTorch</p>
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="card-front">Python & Machine Learning</div>
+                <div class="card-back">
+                    <p>NumPy, Pandas, scikit-learn, TensorFlow, PyTorch</p>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-front">SQL & Databases</div>
+                <div class="card-back">
+                    <p>PostgreSQL, MySQL, Snowflake, Teradata</p>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-front">Big Data & Cloud</div>
+                <div class="card-back">
+                    <p>Hadoop, AWS Sagemaker, Apache Airflow</p>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-front">Data Visualization</div>
+                <div class="card-back">
+                    <p>Tableau, Power BI, Plotly, Matplotlib, Seaborn</p>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="card-front">Project Management</div>
+                <div class="card-back">
+                    <p>Agile, Scrum, Git, Jenkins, Jira</p>
+                </div>
             </div>
         </div>
-        <div class="skill-card">
-            <div class="card-front">SQL & Databases</div>
-            <div class="card-back">
-                <p>PostgreSQL, MySQL, Snowflake, Teradata</p>
-            </div>
-        </div>
-        <div class="skill-card">
-            <div class="card-front">Big Data & Cloud</div>
-            <div class="card-back">
-                <p>Hadoop, AWS Sagemaker, Apache Airflow</p>
-            </div>
-        </div>
-        <div class="skill-card">
-            <div class="card-front">Data Visualization</div>
-            <div class="card-back">
-                <p>Tableau, Power BI, Plotly, Matplotlib, Seaborn</p>
-            </div>
-        </div>
-        <div class="skill-card">
-            <div class="card-front">Project Management</div>
-            <div class="card-back">
-                <p>Agile, Scrum, Git, Jenkins, Jira</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-
+    <!-- Experience Section -->
     <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="flow-container">
-        <!-- Experience 1 -->
-        <div class="flow-block">
-            <div class="connector"></div>
-            <div class="experience-card">
-                <h3>Mu Sigma Inc. (2022 - 2024)</h3>
-                <p>Developed predictive inventory replenishment ETL pipelines using Python, SQL, and PySpark.</p>
+        <h2>Work Experience</h2>
+        <div class="flow-container">
+            <div class="flow-block">
+                <div class="connector"></div>
+                <div class="experience-card">
+                    <h3>Mu Sigma Inc. (2022 - 2024)</h3>
+                    <p>Developed predictive inventory replenishment ETL pipelines using Python, SQL, and PySpark.</p>
+                </div>
+            </div>
+            
+            <div class="flow-block">
+                <div class="connector"></div>
+                <div class="experience-card">
+                    <h3>TCS (2020 - 2021)</h3>
+                    <p>Refined digital infrastructure for India's largest banks, reducing loading time by 10%.</p>
+                </div>
+            </div>
+
+            <div class="flow-block">
+                <div class="connector"></div>
+                <div class="experience-card">
+                    <h3>LawIntel.AI (2024 - Present)</h3>
+                    <p>Worked on Gen AI startup for Legal LLM model, optimizing legal document retrieval.</p>
+                </div>
             </div>
         </div>
-        
-        <!-- Experience 2 -->
-        <div class="flow-block">
-            <div class="connector"></div>
-            <div class="experience-card">
-                <h3>TCS (2020 - 2021)</h3>
-                <p>Refined digital infrastructure for India's largest banks, reducing loading time by 10%.</p>
-            </div>
-        </div>
+    </section>
 
-        <!-- Experience 3 -->
-        <div class="flow-block">
-            <div class="connector"></div>
-            <div class="experience-card">
-                <h3>LawIntel.AI (2024 - Present)</h3>
-                <p>Worked on Gen AI startup for Legal LLM model, optimizing legal document retrieval.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
+    <!-- Projects Section -->
     <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-container">
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Loan Defaulter Detection</h3>
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Loan Defaulter Detection</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Developed an ensemble meta-classifier to detect loan defaulters with high accuracy.</p>
+                    </div>
                 </div>
-                <div class="card-back">
-                    <p>Developed an ensemble meta-classifier to detect loan defaulters with high accuracy.</p>
+            </div>
+            <div class="project-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>Predictive Maintenance</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Developed MCare for predictive failure analysis in industrial machinery.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Predictive Maintenance</h3>
-                </div>
-                <div class="card-back">
-                    <p>Developed MCare for predictive failure analysis in industrial machinery.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-
+    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
         <p>📧 Email: <a href="mailto:aver23@umd.edu">aver23@umd.edu</a></p>
@@ -156,10 +155,10 @@
         <p>💻 <a href="https://github.com/aver81" target="_blank">GitHub</a></p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 Aayush Verma</p>
     </footer>
-     <script defer src="script.js"></script>
 
 </body>
 </html>
