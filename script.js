@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("neuralCanvas");
+    if (!canvas) {
+        console.error("Canvas element not found!");
+        return;
+    }
+    
     const ctx = canvas.getContext("2d");
 
     // Resize Canvas Dynamically
@@ -12,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Neural Network Layer Structure
     const layers = [
-        { x: 100, nodes: 4 },  // Input Layer (4 nodes)
-        { x: 300, nodes: 6 },  // Hidden Layer 1 (6 nodes)
-        { x: 500, nodes: 5 },  // Hidden Layer 2 (5 nodes)
-        { x: 700, nodes: 3 },  // Hidden Layer 3 (3 nodes)
-        { x: 900, nodes: 1 }   // Output Layer (1 node)
+        { x: 150, nodes: 4 },  // Input Layer (4 nodes)
+        { x: 350, nodes: 6 },  // Hidden Layer 1 (6 nodes)
+        { x: 550, nodes: 5 },  // Hidden Layer 2 (5 nodes)
+        { x: 750, nodes: 3 },  // Hidden Layer 3 (3 nodes)
+        { x: 950, nodes: 1 }   // Output Layer (1 node)
     ];
 
     let networkNodes = [];
@@ -67,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         networkNodes.forEach(layer => {
             layer.forEach(node => {
                 ctx.beginPath();
-                ctx.arc(node.x, node.y, 10, 0, Math.PI * 2);
+                ctx.arc(node.x, node.y, 12, 0, Math.PI * 2);
                 ctx.fillStyle = node.active ? "#48cae4" : "white";
                 ctx.fill();
                 ctx.strokeStyle = "black";
@@ -87,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 step++;
                 animateForwardPropagation();
-            }, 400); // Faster forward propagation
+            }, 300); // Faster forward propagation
         } else {
             // Fade out intro after propagation
             setTimeout(() => {
@@ -95,19 +100,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     document.getElementById("intro").style.display = "none";
                     document.body.style.overflow = "auto";
-                }, 1500);
-            }, 1000);
+                }, 1200);
+            }, 800);
         }
     }
 
     // Typing Animation Text
-    const text = "Loading..";
+    const text = "Simulating Neural Network...";
     let index = 0;
     function typeEffect() {
         if (index < text.length) {
             document.getElementById("typing-text").innerHTML += text.charAt(index);
             index++;
-            setTimeout(typeEffect, 100);
+            setTimeout(typeEffect, 75);
         }
     }
 
