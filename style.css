@@ -393,50 +393,36 @@ body {
     position: absolute;
     left: 50px;
 }
-
-/* About Me Section */
 #about-me {
     padding: 60px 10%;
     text-align: center;
     background: black;
 }
 
+/* About Me Container */
+.about-me-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 /* About Me Text */
 .about-me-text {
+    max-width: 50%;
     color: white;
     font-size: 18px;
     line-height: 1.6;
-    max-width: 60%;
-    margin: 0 auto;
+    text-align: left;
 }
 
-/* Profile Image Container */
-.profile-image-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* Profile Image Container */
-.profile-image-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* Circular Profile Image */
-.profile-image-container img {
-    width: 200px; /* Ensure width and height are equal */
-    height: 200px;
-    border-radius: 50%; /* Ensures a perfect circle */
-    object-fit: cover; /* Keeps the image properly scaled */
-    border: 5px solid gold; /* Optional: Adds a gold border */
+/* About Me Image */
+.about-me-image img {
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%; /* Makes it circular */
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Gold glow effect */
     transition: transform 0.3s ease-in-out;
 }
-
-/* Hover Effect */
-.profile-image-container img:hover {
-    transform: scale(1.1);
-}
-
