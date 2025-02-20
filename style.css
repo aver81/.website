@@ -5,14 +5,7 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     text-align: center;
-    overflow-x: hidden; /* Prevents scrolling when F1 car moves */
-}
-
-/* Header Styling */
-header {
-    background-color: #0077b6;
-    color: white;
-    padding: 20px;
+    overflow-x: hidden; /* Prevents unwanted scrolling */
 }
 
 /* Ensure the animation fully covers the screen */
@@ -26,52 +19,25 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Ensure it stays on top */
+    z-index: 9999;
     overflow: hidden;
 }
 
-/* Typing text animation */
-.intro-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    animation: fadeIn 1.2s ease-in;
+/* Canvas container */
+.gradient-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-/* Ensure the F1 car animation */
-#f1-container {
+/* Canvas size */
+#gradientCanvas {
     position: absolute;
-    bottom: 10%;
-    left: -220px; /* Start off-screen */
-    width: 220px;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
-/* The F1 car image */
-#f1-car {
-    width: 220px;
-    height: auto;
-    filter: drop-shadow(10px 10px 30px rgba(255, 0, 0, 0.6)); /* Glowing effect */
-}
-
-/* F1 car zoom animation */
-@keyframes f1Zoom {
-    from {
-        left: -220px; /* Start off-screen */
-        transform: scale(1);
-    }
-    to {
-        left: 110vw; /* Move off-screen to the right */
-        transform: scale(1.3);
-    }
-}
-
-.f1-zoom {
-    animation: f1Zoom 1.3s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-}
-
-/* Smooth fade-out effect after animation */
+/* Fade out effect after animation */
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; }
@@ -223,72 +189,4 @@ h2:hover::after {
     background: #48cae4;
     color: black;
     transform: rotateY(180deg);
-}
-
-/* Sidebar Navigation */
-.sidebar {
-    position: fixed;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-    color: #48cae4;
-}
-
-/* Add spacing between major sections */
-#about, #skills, #experience, #projects, #contact {
-    margin-bottom: 100px;
-}
-
-/* Adjust spacing for better flow */
-#contact {
-    padding-top: 50px;
-    padding-bottom: 100px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 2rem;
-    }
-
-    .experience-card {
-        width: 80%;
-        font-size: 16px;
-    }
-
-    .flow-container {
-        padding-bottom: 80px;
-    }
-
-    .projects-container {
-        margin-top: 40px;
-        margin-bottom: 80px;
-    }
-
-    #contact {
-        padding-top: 40px;
-        padding-bottom: 80px;
-    }
 }
