@@ -123,3 +123,43 @@ document.addEventListener("DOMContentLoaded", function () {
     typeEffect();
     animateForwardPropagation();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("oceanCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Resize canvas to fit window
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    let wavePhase = 0;
+    const waveHeight = 50; // Height of the waves
+    const waveSpeed = 0.02; // Speed of wave movement
+    const waveFrequency = 0.01; // Controls how frequent the waves are
+
+    function drawWaves() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#003366"; // Dark blue for deep ocean
+        ctx.fillRect(0, canvas.height / 2, canvas.width, canvas.height / 2);
+
+        ctx.fillStyle = "#0088cc"; // Light blue for waves
+
+        for (let x = 0; x < canvas.width; x++) {
+            const y =
+                canvas.height / 2 +
+                Math.sin(x * waveFrequency + wavePhase) * waveHeight;
+            ctx.fillRect(x, y, 2, canvas.height / 2 - y);
+        }
+
+        wavePhase -= waveSpeed;
+
+        requestAnimationFrame(drawWaves);
+    }
+
+    drawWaves();
+});
