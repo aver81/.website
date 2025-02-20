@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #ffffff; /* White theme */
-    color: blue;
+    background:black; /* White theme */
+    color: gold;
     text-align: center;
     overflow-x: hidden;
 }
@@ -163,6 +163,7 @@ body {
     margin-bottom: 80px; /* Increased space between experiences */
     position: relative;
     transition: transform 0.3s ease-in-out;
+    color: gold;
 }
 
 /* Hover Effect */
@@ -174,13 +175,15 @@ body {
 .experience-content h3 {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    /*color: #333; */
+    color: gold;
     margin-bottom: 5px;
 }
 
 .experience-content p {
     font-size: 14px;
-    color: #666;
+    /*color: #666; */
+    color:gold;
     line-height: 1.5;
 }
 
@@ -231,7 +234,7 @@ body {
 #projects {
     padding: 80px 10%;
     text-align: center;
-    background: white;
+    background: black;
 }
 
 /* Projects Container (3-Column Layout) */
@@ -246,7 +249,7 @@ body {
 .project-card {
     flex: 1; /* Makes all three sections equal width */
     background: linear-gradient(135deg, #0077b6, #48cae4); /* Gradient background */
-    color: white;
+    color: gold;
     padding: 30px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
