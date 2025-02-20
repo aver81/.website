@@ -1,117 +1,68 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Verma | Data Scientist</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #121212; /* Dark theme */
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
-}
+    <!-- Neural Network Intro Animation -->
+    <section id="intro">
+        <canvas id="neuralCanvas"></canvas>
+        <div class="intro-text">
+            <h1 id="typing-text"></h1>
+        </div>
+    </section>
 
-/* Neural Network Animation Section */
-#intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    overflow: hidden;
-}
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-/* Neural Network Canvas */
-#neuralCanvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Aayush Verma</h1>
+            <p>Data Science and Machine Learning Consultant</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
 
-/* Typing Animation */
-.intro-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    animation: fadeIn 2s ease-in;
-}
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Aayush, a passionate data scientist with expertise in AI, ML, and analytics.</p>
+    </section>
 
-/* Fade-out Animation */
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="card-front">Python & Machine Learning</div>
+                <div class="card-back">
+                    <p>NumPy, Pandas, scikit-learn, TensorFlow, PyTorch</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-#intro.fade-out {
-    animation: fadeOut 1.5s ease-out forwards;
-}
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>📧 Email: <a href="mailto:aver23@umd.edu">aver23@umd.edu</a></p>
+    </section>
 
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: url('your-background-image.jpg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-}
+    <footer>
+        <p>© 2025 Aayush Verma</p>
+    </footer>
 
-/* Dark Overlay for Visibility */
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Hero Text */
-.hero-content {
-    position: relative;
-    z-index: 1;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    letter-spacing: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-/* Call-to-Action Button */
-.hero .cta-button {
-    background: #6c63ff;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.hero .cta-button:hover {
-    background: #48cae4;
-    transform: scale(1.1);
-}
+</body>
+</html>
