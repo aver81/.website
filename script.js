@@ -12,7 +12,7 @@ const waveAmplitude = 50; // Amplitude of the sine wave
 const waveFrequency = 0.01; // Frequency of the sine wave
 const waveSpeed = 2; // Speed of the wave progression
 const ballRadius = 10; // Radius of the ball
-let ballX = -ballRadius; // Initial x-position of the ball (off-screen)
+let ballX = 0; // Start at the left edge of the canvas
 const ballDelay = 50; // Delay in frames for the ball to follow the wave
 
 // Function to draw the sine wave and the ball
