@@ -226,3 +226,56 @@ body {
         transform: none;
     }
 }
+
+/* Projects Section */
+#projects {
+    padding: 80px 10%;
+    text-align: center;
+    background: white;
+}
+
+/* Projects Container (3-Column Layout) */
+.projects-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px; /* Space between projects */
+}
+
+/* Individual Project Cards */
+.project-card {
+    flex: 1; /* Makes all three sections equal width */
+    background: linear-gradient(135deg, #0077b6, #48cae4); /* Gradient background */
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Project Content */
+.project-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Responsive Design (Stacks in Mobile View) */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+}
