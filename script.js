@@ -1,32 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const neuralCanvas = document.getElementById("neuralCanvas");
-    const neuralCtx = neuralCanvas.getContext("2d");
+    const canvas = document.getElementById("neuralCanvas");
+    const ctx = canvas.getContext("2d");
 
     function resizeCanvas() {
-        neuralCanvas.width = window.innerWidth;
-        neuralCanvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Neural Network Layers
     const layers = [
-        { x: 150, nodes: 4 },
+        { x: 100, nodes: 4 },
         { x: 300, nodes: 6 },
-        { x: 450, nodes: 5 },
-        { x: 600, nodes: 4 },
-        { x: 750, nodes: 3 },
-        { x: 850, nodes: 3 },
-        { x: 950, nodes: 4 },
-        { x: 1050, nodes: 4 },
-        { x: 1150, nodes: 1 }
+        { x: 500, nodes: 5 },
+        { x: 700, nodes: 3 },
+        { x: 900, nodes: 1 }
     ];
 
     let networkNodes = [];
     let edges = [];
 
     layers.forEach(layer => {
-        let spacing = neuralCanvas.height / (layer.nodes + 1);
+        let spacing = canvas.height / (layer.nodes + 1);
         let nodes = [];
         for (let i = 0; i < layer.nodes; i++) {
             nodes.push({
@@ -52,51 +47,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let step = 0;
     function animateForwardPropagation() {
-        neuralCtx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         edges.forEach(edge => {
-            neuralCtx.beginPath();
-            neuralCtx.moveTo(edge.from.x, edge.from.y);
-            neuralCtx.lineTo(edge.to.x, edge.to.y);
-            neuralCtx.strokeStyle = edge.active ? "#48cae4" : "rgba(255,255,255,0.2)";
-            neuralCtx.lineWidth = edge.active ? 2.5 : 1;
-            neuralCtx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(edge.from.x, edge.from.y);
+            ctx.lineTo(edge.to.x, edge.to.y);
+            ctx.strokeStyle = edge.active ? "#48cae4" : "rgba(255,255,255,0.2)";
+            ctx.lineWidth = edge.active ? 2.5 : 1;
+            ctx.stroke();
         });
 
         networkNodes.forEach(layer => {
             layer.forEach(node => {
-                neuralCtx.beginPath();
-                neuralCtx.arc(node.x, node.y, 12, 0, Math.PI * 2);
-                neuralCtx.fillStyle = node.active ? "#48cae4" : "white";
-                neuralCtx.fill();
-                neuralCtx.strokeStyle = "black";
-                neuralCtx.stroke();
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 10, 0, Math.PI * 2);
+                ctx.fillStyle = node.active ? "#48cae4" : "white";
+                ctx.fill();
+                ctx.strokeStyle = "black";
+                ctx.stroke();
             });
         });
 
         if (step < networkNodes.length) {
             networkNodes[step].forEach(node => node.active = true);
             setTimeout(() => {
-                edges.forEach(edge => {
-                    if (edge.from.active && !edge.to.active) {
-                        edge.active = true;
-                    }
-                });
                 step++;
                 animateForwardPropagation();
-            }, 150);
+            }, 300);
         } else {
-            setTimeout(() => {
-                document.getElementById("intro").classList.add("fade-out");
-                setTimeout(() => {
-                    document.getElementById("intro").style.display = "none";
-                    startOceanAnimation();
-                }, 1200);
-            }, 800);
+            document.getElementById("intro").classList.add("fade-out");
+            setTimeout(() => document.getElementById("intro").style.display = "none", 1500);
         }
     }
-
-   
 
     animateForwardPropagation();
 });
