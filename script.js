@@ -94,41 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function startOceanAnimation() {
-        const oceanCanvas = document.getElementById("oceanCanvas");
-        const ctx = oceanCanvas.getContext("2d");
-
-        function resizeCanvas() {
-            oceanCanvas.width = window.innerWidth;
-            oceanCanvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
-
-        let wavePhase = 0;
-        const waveHeight = 50;
-        const waveSpeed = 0.02;
-        const waveFrequency = 0.01;
-
-        function drawWaves() {
-            ctx.clearRect(0, 0, oceanCanvas.width, oceanCanvas.height);
-
-            ctx.fillStyle = "#003366";
-            ctx.fillRect(0, oceanCanvas.height / 2, oceanCanvas.width, oceanCanvas.height / 2);
-
-            ctx.fillStyle = "#0088cc";
-
-            for (let x = 0; x < oceanCanvas.width; x++) {
-                const y = oceanCanvas.height / 2 + Math.sin(x * waveFrequency + wavePhase) * waveHeight;
-                ctx.fillRect(x, y, 2, oceanCanvas.height / 2 - y);
-            }
-
-            wavePhase -= waveSpeed;
-            requestAnimationFrame(drawWaves);
-        }
-
-        drawWaves();
-    }
+   
 
     animateForwardPropagation();
 });
