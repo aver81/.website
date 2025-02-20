@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { x: 750, nodes: 3 },    // Hidden Layer 3 (3 nodes)
     { x: 950, nodes: 6 },    // Hidden Layer 4 (6 nodes)
     { x: 1150, nodes: 6 },   // Hidden Layer 5 (6 nodes)
-    { x: 1350, nodes: 6 },   // Hidden Layer 6 (6 nodes)
-    { x: 1550, nodes: 1 }    // Output Layer (1 node)
+    { x: 1350, nodes: 1 }    // Output Layer (1 node)
 ];
 
     let networkNodes = [];
