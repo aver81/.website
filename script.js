@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("gradientCanvas");
     const ctx = canvas.getContext("2d");
 
-    // Resize Canvas
+    // Resize Canvas Dynamically
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -10,32 +10,32 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Define Cost Function: y = 0.005 * x^2 (Scaled for better visualization)
+    // Define Cost Function: y = 0.005 * x^2
     function costFunction(x) {
         return 0.005 * Math.pow(x, 2);
     }
 
     // Ball Properties
     let ball = {
-        x: -250, // Start position (far left)
-        y: costFunction(-250),
+        x: -150, // Start position closer to center
+        y: costFunction(-150),
         radius: 10,
         color: "red",
         velocity: 0,
-        learningRate: 0.4, // Step Size (Balanced for smooth descent)
+        learningRate: 0.5, // Adjusted learning rate
     };
 
     let running = true; // Controls animation flow
 
-    // Adjust Scaling for Proper Visibility
-    const scaleX = canvas.width / 600; // Scale width for better fit
-    const scaleY = canvas.height / 200; // Scale height to fit the curve
+    // Proper Scaling for Visibility
+    const scaleX = canvas.width / 400;  // Adjusted to fit screen better
+    const scaleY = canvas.height / 150; // Adjusted for better curve visibility
 
-    // Draw Loss Function
+    // Center Curve
     function drawCurve() {
         ctx.beginPath();
-        ctx.moveTo(canvas.width / 2 + (-300 * scaleX), canvas.height / 2 - costFunction(-300) * scaleY);
-        for (let x = -300; x < 300; x += 5) {
+        ctx.moveTo(canvas.width / 2 + (-200 * scaleX), canvas.height / 2 - costFunction(-200) * scaleY);
+        for (let x = -200; x < 200; x += 5) {
             let y = costFunction(x);
             ctx.lineTo(canvas.width / 2 + x * scaleX, canvas.height / 2 - y * scaleY);
         }
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBall() {
         if (!running) return;
 
-        let gradient = 0.01 * ball.x; // Derivative of y = 0.005x^2 -> dy/dx = 0.01x
-        ball.velocity = -ball.learningRate * gradient; // Gradient Descent Update Rule
-        ball.x += ball.velocity; // Update position
-        ball.y = costFunction(ball.x); // Update height
+        let gradient = 0.01 * ball.x; // dy/dx = 0.01x
+        ball.velocity = -ball.learningRate * gradient; 
+        ball.x += ball.velocity; 
+        ball.y = costFunction(ball.x);
 
         // Stop animation when movement is minimal
-        if (Math.abs(ball.velocity) < 0.05) running = false;
+        if (Math.abs(ball.velocity) < 0.02) running = false;
     }
 
     // Animation Loop
@@ -77,18 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (running) {
             requestAnimationFrame(animate);
         } else {
-            // Fade Out & Transition to Main Page
             setTimeout(() => {
                 document.getElementById("intro").classList.add("fade-out");
                 setTimeout(() => {
                     document.getElementById("intro").style.display = "none";
-                    document.body.style.overflow = "auto"; // Ensure scrolling is enabled after animation
+                    document.body.style.overflow = "auto";
                 }, 1500);
             }, 1000);
         }
     }
 
-    // Start animation and ensure website loads properly
-    document.body.style.overflow = "hidden"; // Prevent scrolling during animation
+    document.body.style.overflow = "hidden"; 
     animate();
 });
