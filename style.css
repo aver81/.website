@@ -65,6 +65,7 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
+    background: url('DS backdrop.png') center/cover no-repeat;
 }
 
 /* Dark Overlay for Visibility */
