@@ -10,32 +10,32 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Define Cost Function: y = 0.002 * x^2 (Adjusted for better fit)
+    // Define Cost Function: Sine Wave
     function costFunction(x) {
-        return 0.002 * Math.pow(x, 2);
+        return Math.sin(x);  // Sine wave function
     }
 
     // Ball Properties
     let ball = {
-        x: -180, // Start position (adjusted for centering)
-        y: costFunction(-180),
-        radius: 12,
+        x: -Math.PI, // Start position (left side of sine wave)
+        y: costFunction(-Math.PI),
+        radius: 10,
         color: "red",
         velocity: 0,
-        learningRate: 0.4, // Adjusted for smooth descent
+        learningRate: 0.1, // Adjusted for smooth descent
     };
 
     let running = true; // Controls animation flow
 
-    // **Improved Scaling for Full Visibility**
-    const scaleX = canvas.width / 500;  // Fit width better
-    const scaleY = canvas.height / 300; // Scale to make full graph visible
+    // Proper Scaling for Visibility
+    const scaleX = canvas.width / (4 * Math.PI);  // Fit sine wave across width
+    const scaleY = canvas.height / 3;            // Scale to fit screen height
 
-    // Draw the centered curve properly
+    // Draw Sine Wave
     function drawCurve() {
         ctx.beginPath();
-        ctx.moveTo(canvas.width / 2 + (-250 * scaleX), canvas.height / 2 - costFunction(-250) * scaleY);
-        for (let x = -250; x < 250; x += 5) {
+        ctx.moveTo(canvas.width / 2 + (-2 * Math.PI) * scaleX, canvas.height / 2 - costFunction(-2 * Math.PI) * scaleY);
+        for (let x = -2 * Math.PI; x <= 2 * Math.PI; x += 0.1) {
             let y = costFunction(x);
             ctx.lineTo(canvas.width / 2 + x * scaleX, canvas.height / 2 - y * scaleY);
         }
@@ -55,17 +55,17 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.stroke();
     }
 
-    // Gradient Descent Update
+    // Gradient Descent Update (Derivative of sin(x) is cos(x))
     function updateBall() {
         if (!running) return;
 
-        let gradient = 0.004 * ball.x; // dy/dx = 0.004x (Adjusted)
-        ball.velocity = -ball.learningRate * gradient; 
-        ball.x += ball.velocity; 
+        let gradient = Math.cos(ball.x); // Derivative of sin(x) is cos(x)
+        ball.velocity = -ball.learningRate * gradient;
+        ball.x += ball.velocity;
         ball.y = costFunction(ball.x);
 
         // Stop animation when movement is minimal
-        if (Math.abs(ball.velocity) < 0.01) running = false;
+        if (Math.abs(ball.velocity) < 0.001) running = false;
     }
 
     // Animation Loop
