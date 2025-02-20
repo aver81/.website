@@ -1,76 +1,71 @@
-document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-});
-
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Formula 1 Animation
-    const f1Car = document.getElementById("f1-container");
+    const canvas = document.getElementById("gradientCanvas");
+    const ctx = canvas.getContext("2d");
 
-    // Add class to trigger animation
-    setTimeout(() => {
-        f1Car.classList.add("f1-zoom");
-    }, 500); // Delay start slightly for better effect
+    // Resize Canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    // Hide the intro after the animation completes
-    setTimeout(() => {
-        document.getElementById("intro").classList.add("fade-out");
-        setTimeout(() => {
-            document.getElementById("intro").style.display = "none";
-        }, 1500);
-    }, 2000); // Ensure enough time for animation before fading out
-
-    // Reveal Timeline Animation on Scroll
-    function revealTimeline() {
-        let items = document.querySelectorAll(".timeline-item");
-        let windowHeight = window.innerHeight;
-
-        items.forEach(item => {
-            let itemTop = item.getBoundingClientRect().top;
-            if (itemTop < windowHeight - 50) {
-                item.classList.add("visible");
-            }
-        });
+    // Define Cost Function: y = x^2 (Parabolic Loss)
+    function costFunction(x) {
+        return 0.05 * Math.pow(x, 2);
     }
 
-    window.addEventListener("scroll", revealTimeline);
-    revealTimeline(); // Run on load
+    // Ball Properties
+    let ball = {
+        x: -200, // Start position (left side)
+        y: costFunction(-200),
+        radius: 10,
+        color: "red",
+        velocity: 0,
+        learningRate: 0.5, // Step Size
+    };
 
-    // Reveal Flow Blocks Animation on Scroll
-    function revealFlowBlocks() {
-        let blocks = document.querySelectorAll(".experience-card");
-        let windowHeight = window.innerHeight;
+    let running = true; // Control animation
 
-        blocks.forEach(block => {
-            let blockTop = block.getBoundingClientRect().top;
-            if (blockTop < windowHeight - 100) {
-                block.classList.add("visible");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", revealFlowBlocks);
-    revealFlowBlocks(); // Run on load
-});
-
-// Sidebar Scroll Highlighting
-document.addEventListener("scroll", function () {
-    let sections = document.querySelectorAll("section");
-    let sidebarLinks = document.querySelectorAll(".sidebar ul li a");
-
-    sections.forEach((section, index) => {
-        let rect = section.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
-            sidebarLinks.forEach(link => link.classList.remove("active"));
-            sidebarLinks[index].classList.add("active");
+    // Draw Loss Function
+    function drawCurve() {
+        ctx.beginPath();
+        ctx.moveTo(0, costFunction(-canvas.width / 2) + canvas.height / 2);
+        for (let x = -canvas.width / 2; x < canvas.width / 2; x += 5) {
+            let y = costFunction(x);
+            ctx.lineTo(canvas.width / 2 + x, canvas.height / 2 - y);
         }
-    });
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    // Draw Ball
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2 + ball.x, canvas.height / 2 - ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    // Gradient Descent Update
+    function updateBall() {
+        if (!running) return;
+        let gradient = 0.1 * ball.x; // Derivative of y = 0.05x^2 (dy/dx = 0.1x)
+        ball.velocity = -ball.learningRate * gradient; // Gradient Descent Update Rule
+        ball.x += ball.velocity; // Update position
+        ball.y = costFunction(ball.x); // Update height
+        if (Math.abs(ball.velocity) < 0.01) running = false; // Stop when movement is minimal
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawCurve();
+        drawBall();
+        updateBall();
+        if (running) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
 });
