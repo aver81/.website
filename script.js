@@ -31,9 +31,11 @@ function draw() {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Calculate the ball's position with a delay
-    const ballTargetX = (wavePhase / waveFrequency) % canvas.width;
-    ballX += (ballTargetX - ballX) / ballDelay;
+    // Calculate the correct delayed ball position
+    const delayFactor = 0.8; // Adjust this to tune the delay effect
+    const ballTargetX = (wavePhase / waveFrequency) % canvas.width - ballDelay;
+    ballX = ballTargetX * delayFactor;
+
 
     // Draw the ball
     const ballY = canvas.height / 2 + Math.sin(ballX * waveFrequency + wavePhase) * waveAmplitude;
