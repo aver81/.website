@@ -144,7 +144,7 @@ body {
     top: 5;
     width: 5px;
     height: 100%;
-    background-color: #0077b6;
+    background-color: gold;
     transform: translateX(-50%);
     z-index: 1;
 }
