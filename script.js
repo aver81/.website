@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.beginPath();
             ctx.moveTo(edge.from.x, edge.from.y);
             ctx.lineTo(edge.to.x, edge.to.y);
-            ctx.strokeStyle = edge.active ? "#48cae4" : "rgba(255,255,255,0.2)";
+            ctx.strokeStyle = edge.active ? "#FFD700" : "rgba(255,255,255,0.2)";
             ctx.lineWidth = edge.active ? 2.5 : 1;
             ctx.stroke();
         });
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             layer.forEach(node => {
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, 10, 0, Math.PI * 2);
-                ctx.fillStyle = node.active ? "#48cae4" : "white";
+                ctx.fillStyle = node.active ? "#FFD700" : "white";
                 ctx.fill();
                 ctx.strokeStyle = "black";
                 ctx.stroke();
