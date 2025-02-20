@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { x: 450, nodes: 5 },
         { x: 600, nodes: 4 },
         { x: 750, nodes: 3 },
+        { x: 850, nodes: 3 },
         { x: 900, nodes: 1 }
     ];
 
