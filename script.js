@@ -1,51 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("neuralCanvas");
-    if (!canvas) {
-        console.error("Canvas element not found!");
-        return;
-    }
-    
-    const ctx = canvas.getContext("2d");
+    const neuralCanvas = document.getElementById("neuralCanvas");
+    const neuralCtx = neuralCanvas.getContext("2d");
 
-    // Resize Canvas Dynamically
     function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        neuralCanvas.width = window.innerWidth;
+        neuralCanvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Neural Network Layer Structure
+    // Neural Network Layers
     const layers = [
-    { x: 50, nodes: 4 },    // Input Layer (4 nodes)
-    { x: 200, nodes: 6 },   // Hidden Layer 1 (6 nodes)
-    { x: 400, nodes: 5 },   // Hidden Layer 2 (5 nodes)
-    { x: 600, nodes: 4 },   // Hidden Layer 3 (4 nodes)
-    { x: 800, nodes: 3 },   // Hidden Layer 4 (3 nodes)
-    { x: 1000, nodes: 2 },  // Hidden Layer 5 (2 nodes)
-    { x: 1150, nodes: 1 }   // Output Layer (1 node) - Final layer properly positioned
-];
-
-
+        { x: 150, nodes: 4 },
+        { x: 300, nodes: 6 },
+        { x: 450, nodes: 5 },
+        { x: 600, nodes: 4 },
+        { x: 750, nodes: 3 },
+        { x: 900, nodes: 1 }
+    ];
 
     let networkNodes = [];
     let edges = [];
 
-    // Create node positions for layers
     layers.forEach(layer => {
-        let spacing = canvas.height / (layer.nodes + 1);
+        let spacing = neuralCanvas.height / (layer.nodes + 1);
         let nodes = [];
         for (let i = 0; i < layer.nodes; i++) {
             nodes.push({
                 x: layer.x,
                 y: (i + 1) * spacing,
-                active: false // Initially inactive
+                active: false
             });
         }
         networkNodes.push(nodes);
     });
 
-    // Create connections (edges) between layers
     for (let i = 0; i < networkNodes.length - 1; i++) {
         networkNodes[i].forEach(nodeA => {
             networkNodes[i + 1].forEach(nodeB => {
@@ -60,35 +49,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let step = 0;
     function animateForwardPropagation() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        neuralCtx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
 
-        // Draw edges (connections)
         edges.forEach(edge => {
-            ctx.beginPath();
-            ctx.moveTo(edge.from.x, edge.from.y);
-            ctx.lineTo(edge.to.x, edge.to.y);
-            ctx.strokeStyle = edge.active ? "#48cae4" : "rgba(255,255,255,0.2)";
-            ctx.lineWidth = edge.active ? 2.5 : 1;
-            ctx.stroke();
+            neuralCtx.beginPath();
+            neuralCtx.moveTo(edge.from.x, edge.from.y);
+            neuralCtx.lineTo(edge.to.x, edge.to.y);
+            neuralCtx.strokeStyle = edge.active ? "#48cae4" : "rgba(255,255,255,0.2)";
+            neuralCtx.lineWidth = edge.active ? 2.5 : 1;
+            neuralCtx.stroke();
         });
 
-        // Draw nodes
         networkNodes.forEach(layer => {
             layer.forEach(node => {
-                ctx.beginPath();
-                ctx.arc(node.x, node.y, 12, 0, Math.PI * 2);
-                ctx.fillStyle = node.active ? "#48cae4" : "white";
-                ctx.fill();
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+                neuralCtx.beginPath();
+                neuralCtx.arc(node.x, node.y, 12, 0, Math.PI * 2);
+                neuralCtx.fillStyle = node.active ? "#48cae4" : "white";
+                neuralCtx.fill();
+                neuralCtx.strokeStyle = "black";
+                neuralCtx.stroke();
             });
         });
 
         if (step < networkNodes.length) {
-            // Activate nodes in each layer over time
             networkNodes[step].forEach(node => node.active = true);
             setTimeout(() => {
-                // Activate corresponding edges
                 edges.forEach(edge => {
                     if (edge.from.active && !edge.to.active) {
                         edge.active = true;
@@ -96,70 +81,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 step++;
                 animateForwardPropagation();
-            }, 300); // Faster forward propagation
+            }, 300);
         } else {
-            // Fade out intro after propagation
             setTimeout(() => {
                 document.getElementById("intro").classList.add("fade-out");
                 setTimeout(() => {
                     document.getElementById("intro").style.display = "none";
-                    document.body.style.overflow = "auto";
+                    startOceanAnimation();
                 }, 1200);
             }, 800);
         }
     }
 
-    // Typing Animation Text
-    const text = "Simulating Neural Network...";
-    let index = 0;
-    function typeEffect() {
-        if (index < text.length) {
-            document.getElementById("typing-text").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeEffect, 75);
+    function startOceanAnimation() {
+        const oceanCanvas = document.getElementById("oceanCanvas");
+        const ctx = oceanCanvas.getContext("2d");
+
+        function resizeCanvas() {
+            oceanCanvas.width = window.innerWidth;
+            oceanCanvas.height = window.innerHeight;
         }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        let wavePhase = 0;
+        const waveHeight = 50;
+        const waveSpeed = 0.02;
+        const waveFrequency = 0.01;
+
+        function drawWaves() {
+            ctx.clearRect(0, 0, oceanCanvas.width, oceanCanvas.height);
+
+            ctx.fillStyle = "#003366";
+            ctx.fillRect(0, oceanCanvas.height / 2, oceanCanvas.width, oceanCanvas.height / 2);
+
+            ctx.fillStyle = "#0088cc";
+
+            for (let x = 0; x < oceanCanvas.width; x++) {
+                const y = oceanCanvas.height / 2 + Math.sin(x * waveFrequency + wavePhase) * waveHeight;
+                ctx.fillRect(x, y, 2, oceanCanvas.height / 2 - y);
+            }
+
+            wavePhase -= waveSpeed;
+            requestAnimationFrame(drawWaves);
+        }
+
+        drawWaves();
     }
 
-    typeEffect();
     animateForwardPropagation();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("oceanCanvas");
-    const ctx = canvas.getContext("2d");
-
-    // Resize canvas to fit window
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    let wavePhase = 0;
-    const waveHeight = 50; // Height of the waves
-    const waveSpeed = 0.02; // Speed of wave movement
-    const waveFrequency = 0.01; // Controls how frequent the waves are
-
-    function drawWaves() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = "#003366"; // Dark blue for deep ocean
-        ctx.fillRect(0, canvas.height / 2, canvas.width, canvas.height / 2);
-
-        ctx.fillStyle = "#0088cc"; // Light blue for waves
-
-        for (let x = 0; x < canvas.width; x++) {
-            const y =
-                canvas.height / 2 +
-                Math.sin(x * waveFrequency + wavePhase) * waveHeight;
-            ctx.fillRect(x, y, 2, canvas.height / 2 - y);
-        }
-
-        wavePhase -= waveSpeed;
-
-        requestAnimationFrame(drawWaves);
-    }
-
-    drawWaves();
 });
