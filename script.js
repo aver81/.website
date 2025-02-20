@@ -17,14 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Neural Network Layer Structure
     const layers = [
-        { x: 150, nodes: 4 },  // Input Layer (4 nodes)
-        { x: 350, nodes: 6 },  // Hidden Layer 1 (6 nodes)
-        { x: 550, nodes: 5 },  // Hidden Layer 2 (5 nodes)
-        { x: 750, nodes: 3 },  // Hidden Layer 3 (3 nodes)
-        { x: 950, nodes: 6 },  // Hidden Layer 3 (3 nodes)
-        { x: 1150, nodes: 6 },  // Hidden Layer 3 (3 nodes)
-        { x: 1350, nodes: 1 }   // Output Layer (1 node)
-    ];
+    { x: 150, nodes: 4 },    // Input Layer (4 nodes)
+    { x: 350, nodes: 6 },    // Hidden Layer 1 (6 nodes)
+    { x: 550, nodes: 5 },    // Hidden Layer 2 (5 nodes)
+    { x: 750, nodes: 3 },    // Hidden Layer 3 (3 nodes)
+    { x: 950, nodes: 6 },    // Hidden Layer 4 (6 nodes)
+    { x: 1150, nodes: 6 },   // Hidden Layer 5 (6 nodes)
+    { x: 1350, nodes: 6 },   // Hidden Layer 6 (6 nodes)
+    { x: 1550, nodes: 1 }    // Output Layer (1 node)
+];
 
     let networkNodes = [];
     let edges = [];
