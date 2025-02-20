@@ -10,32 +10,32 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Define Cost Function: y = 0.005 * x^2
+    // Define Cost Function: y = 0.002 * x^2 (Adjusted for better fit)
     function costFunction(x) {
-        return 0.005 * Math.pow(x, 2);
+        return 0.002 * Math.pow(x, 2);
     }
 
     // Ball Properties
     let ball = {
-        x: -150, // Start position closer to center
-        y: costFunction(-150),
-        radius: 10,
+        x: -180, // Start position (adjusted for centering)
+        y: costFunction(-180),
+        radius: 12,
         color: "red",
         velocity: 0,
-        learningRate: 0.5, // Adjusted learning rate
+        learningRate: 0.4, // Adjusted for smooth descent
     };
 
     let running = true; // Controls animation flow
 
-    // Proper Scaling for Visibility
-    const scaleX = canvas.width / 400;  // Adjusted to fit screen better
-    const scaleY = canvas.height / 150; // Adjusted for better curve visibility
+    // **Improved Scaling for Full Visibility**
+    const scaleX = canvas.width / 500;  // Fit width better
+    const scaleY = canvas.height / 300; // Scale to make full graph visible
 
-    // Center Curve
+    // Draw the centered curve properly
     function drawCurve() {
         ctx.beginPath();
-        ctx.moveTo(canvas.width / 2 + (-200 * scaleX), canvas.height / 2 - costFunction(-200) * scaleY);
-        for (let x = -200; x < 200; x += 5) {
+        ctx.moveTo(canvas.width / 2 + (-250 * scaleX), canvas.height / 2 - costFunction(-250) * scaleY);
+        for (let x = -250; x < 250; x += 5) {
             let y = costFunction(x);
             ctx.lineTo(canvas.width / 2 + x * scaleX, canvas.height / 2 - y * scaleY);
         }
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBall() {
         if (!running) return;
 
-        let gradient = 0.01 * ball.x; // dy/dx = 0.01x
+        let gradient = 0.004 * ball.x; // dy/dx = 0.004x (Adjusted)
         ball.velocity = -ball.learningRate * gradient; 
         ball.x += ball.velocity; 
         ball.y = costFunction(ball.x);
 
         // Stop animation when movement is minimal
-        if (Math.abs(ball.velocity) < 0.02) running = false;
+        if (Math.abs(ball.velocity) < 0.01) running = false;
     }
 
     // Animation Loop
