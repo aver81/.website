@@ -82,10 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("intro").classList.add("fade-out");
                 setTimeout(() => {
                     document.getElementById("intro").style.display = "none";
+                    document.body.style.overflow = "auto"; // Ensure scrolling is enabled after animation
                 }, 1500);
             }, 1000);
         }
     }
 
+    // Start animation and ensure website loads properly
+    document.body.style.overflow = "hidden"; // Prevent scrolling during animation
     animate();
 });
