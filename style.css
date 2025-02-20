@@ -153,13 +153,14 @@ body {
 .experience-box {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 50%;
     background: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     text-align: left;
-    margin-bottom: 50px; /* Spacing between experiences */
+    margin-bottom: 80px; /* Increased space between experiences */
     position: relative;
     transition: transform 0.3s ease-in-out;
 }
@@ -183,24 +184,24 @@ body {
     line-height: 1.5;
 }
 
-/* Solid Circle Nodes (Now Positioned ON the Line) */
+/* Solid Circle Nodes (Now Properly Positioned ON the Line) */
 .experience-node {
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     width: 15px;
     height: 15px;
     background-color: #0077b6;
     border-radius: 50%;
-    transform: translateX(-50%);
     z-index: 2;
 }
 
-/* Correct Node Positioning for Each Experience */
+/* Properly Position the Circles Adjacent to Each Experience */
 .experience-box:nth-child(1) .experience-node { top: 0; }
-.experience-box:nth-child(2) .experience-node { top: 25%; }
-.experience-box:nth-child(3) .experience-node { top: 50%; }
-.experience-box:nth-child(4) .experience-node { top: 75%; }
-.experience-box:nth-child(5) .experience-node { top: 100%; }
+.experience-box:nth-child(2) .experience-node { top: 100px; }
+.experience-box:nth-child(3) .experience-node { top: 200px; }
+.experience-box:nth-child(4) .experience-node { top: 300px; }
+.experience-box:nth-child(5) .experience-node { top: 400px; }
 
 /* Alternate Experience Boxes Left and Right */
 .experience-box:nth-child(odd) {
