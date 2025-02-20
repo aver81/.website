@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { x: 750, nodes: 3 },
         { x: 850, nodes: 3 },
         { x: 950, nodes: 4 },
-        { x: 1050, nodes: 1 },
+        { x: 1050, nodes: 4 },
+        { x: 1150, nodes: 1 }
     ];
 
     let networkNodes = [];
