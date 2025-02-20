@@ -9,11 +9,11 @@ canvas.height = window.innerHeight;
 // Animation variables
 let wavePhase = 0; // Phase of the sine wave
 const waveAmplitude = 50; // Amplitude of the sine wave
-const waveFrequency = 0.01; // Frequency of the sine wave
-const waveSpeed = 2; // Speed of the wave progression
+const waveFrequency = 0.008; // Frequency of the sine wave (adjusted for smoothness)
+const waveSpeed = 3; // Speed of the wave progression
 const ballRadius = 10; // Radius of the ball
 let ballX = 0; // Start at the left edge of the canvas
-const ballDelay = 50; // Delay in frames for the ball to follow the wave
+const ballDelay = 30; // Delay in frames for the ball to follow the wave
 
 // Function to draw the sine wave and the ball
 function draw() {
@@ -32,10 +32,9 @@ function draw() {
     ctx.stroke();
 
     // Calculate the correct delayed ball position
-    const delayFactor = 0.8; // Adjust this to tune the delay effect
+    const delayFactor = 0.8; // Adjust this for delay effect
     const ballTargetX = (wavePhase / waveFrequency) % canvas.width - ballDelay;
     ballX = ballTargetX * delayFactor;
-
 
     // Draw the ball
     const ballY = canvas.height / 2 + Math.sin(ballX * waveFrequency + wavePhase) * waveAmplitude;
@@ -44,8 +43,8 @@ function draw() {
     ctx.fillStyle = '#f00';
     ctx.fill();
 
-    // Update the wave phase for the next frame
-    wavePhase -= waveSpeed;
+    // Move the wave to the right
+    wavePhase += waveSpeed;
 
     // Request the next frame
     requestAnimationFrame(draw);
