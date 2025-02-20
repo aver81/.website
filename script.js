@@ -3,33 +3,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = canvas.getContext("2d");
 
     // Resize Canvas
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-    // Define Cost Function: y = x^2 (Parabolic Loss)
+    // Define Cost Function: y = 0.005 * x^2 (Scaled for better visualization)
     function costFunction(x) {
-        return 0.05 * Math.pow(x, 2);
+        return 0.005 * Math.pow(x, 2);
     }
 
     // Ball Properties
     let ball = {
-        x: -200, // Start position (left side)
-        y: costFunction(-200),
+        x: -250, // Start position (far left)
+        y: costFunction(-250),
         radius: 10,
         color: "red",
         velocity: 0,
-        learningRate: 0.5, // Step Size
+        learningRate: 0.4, // Step Size (Balanced for smooth descent)
     };
 
-    let running = true; // Control animation
+    let running = true; // Controls animation flow
+
+    // Adjust Scaling for Proper Visibility
+    const scaleX = canvas.width / 600; // Scale width for better fit
+    const scaleY = canvas.height / 200; // Scale height to fit the curve
 
     // Draw Loss Function
     function drawCurve() {
         ctx.beginPath();
-        ctx.moveTo(0, costFunction(-canvas.width / 2) + canvas.height / 2);
-        for (let x = -canvas.width / 2; x < canvas.width / 2; x += 5) {
+        ctx.moveTo(canvas.width / 2 + (-300 * scaleX), canvas.height / 2 - costFunction(-300) * scaleY);
+        for (let x = -300; x < 300; x += 5) {
             let y = costFunction(x);
-            ctx.lineTo(canvas.width / 2 + x, canvas.height / 2 - y);
+            ctx.lineTo(canvas.width / 2 + x * scaleX, canvas.height / 2 - y * scaleY);
         }
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
@@ -39,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Draw Ball
     function drawBall() {
         ctx.beginPath();
-        ctx.arc(canvas.width / 2 + ball.x, canvas.height / 2 - ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.arc(canvas.width / 2 + ball.x * scaleX, canvas.height / 2 - ball.y * scaleY, ball.radius, 0, Math.PI * 2);
         ctx.fillStyle = ball.color;
         ctx.fill();
         ctx.strokeStyle = "black";
@@ -50,13 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gradient Descent Update
     function updateBall() {
         if (!running) return;
-        let gradient = 0.1 * ball.x; // Derivative of y = 0.05x^2 (dy/dx = 0.1x)
+
+        let gradient = 0.01 * ball.x; // Derivative of y = 0.005x^2 -> dy/dx = 0.01x
         ball.velocity = -ball.learningRate * gradient; // Gradient Descent Update Rule
         ball.x += ball.velocity; // Update position
         ball.y = costFunction(ball.x); // Update height
-        if (Math.abs(ball.velocity) < 0.01) running = false; // Stop when movement is minimal
+
+        // Stop animation when movement is minimal
+        if (Math.abs(ball.velocity) < 0.05) running = false;
     }
 
+    // Animation Loop
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCurve();
@@ -64,6 +76,14 @@ document.addEventListener("DOMContentLoaded", function () {
         updateBall();
         if (running) {
             requestAnimationFrame(animate);
+        } else {
+            // Fade Out & Transition to Main Page
+            setTimeout(() => {
+                document.getElementById("intro").classList.add("fade-out");
+                setTimeout(() => {
+                    document.getElementById("intro").style.display = "none";
+                }, 1500);
+            }, 1000);
         }
     }
 
