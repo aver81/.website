@@ -8,8 +8,8 @@ canvas.height = window.innerHeight;
 
 // Animation variables
 let wavePhase = 0; // Phase of the sine wave
-const waveAmplitude = 100; // Increased amplitude for better visibility
-const waveFrequency = 0.01; // Frequency of the sine wave
+const waveAmplitude = 120; // Increased amplitude for better visibility
+const waveFrequency = 0.008; // Frequency of the sine wave
 const waveSpeed = 3; // Speed of the wave progression
 const ballRadius = 12; // Increased radius for visibility
 let ballX = 0; // Start at the left edge of the canvas
@@ -38,24 +38,26 @@ function draw(timestamp) {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw the sine wave
+    // Draw a single sine wave
     ctx.beginPath();
-    ctx.moveTo(0, canvas.height / 2);
     for (let x = 0; x < canvas.width; x++) {
-        const y = canvas.height / 2 + Math.sin(x * waveFrequency + wavePhase) * waveAmplitude;
-        ctx.lineTo(x, y);
+        const y = canvas.height / 2 + Math.sin((x * waveFrequency) + wavePhase) * waveAmplitude;
+        if (x === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
     }
     ctx.strokeStyle = '#FF0000'; // Change sine wave color to red
     ctx.lineWidth = 3;
     ctx.stroke();
 
     // Calculate the ball's delayed position
-    const delayFactor = 0.8;
     const ballTargetX = (wavePhase / waveFrequency) % canvas.width - ballDelay;
-    ballX = ballTargetX * delayFactor;
+    ballX = Math.max(0, Math.min(canvas.width, ballTargetX)); // Keep the ball within bounds
 
     // Draw the ball (Yellow color for visibility)
-    const ballY = canvas.height / 2 + Math.sin(ballX * waveFrequency + wavePhase) * waveAmplitude;
+    const ballY = canvas.height / 2 + Math.sin((ballX * waveFrequency) + wavePhase) * waveAmplitude;
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
     ctx.fillStyle = '#FFD700'; // Yellow color
