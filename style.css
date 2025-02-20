@@ -210,12 +210,12 @@ body {
 /* Alternate Experience Boxes Left and Right */
 .experience-box:nth-child(odd) {
     align-self: flex-start;
-    margin-left: 5%;
+    margin-left: 55%;
 }
 
 .experience-box:nth-child(even) {
     align-self: flex-end;
-    margin-right: 5%;
+    margin-right: 55%;
 }
 
 
@@ -229,11 +229,11 @@ body {
     }
 
     .experience-line {
-        left: 10px;
+        left: 15px;
     }
 
     .experience-node {
-        left: 10px;
+        left: 15px;
         transform: none;
     }
 }
