@@ -8,11 +8,15 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Courier Prime', monospace; /* Typewriter font */
     background:black; /* White theme */
     color: gold;
     text-align: center;
     overflow-x: hidden;
+}
+
+h1, h2, h3, p, a, span {
+    font-family: 'Courier Prime', monospace; /* Ensures all text uses typewriter font */
 }
 
 /* Neural Network Animation Section */
