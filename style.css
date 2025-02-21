@@ -367,6 +367,7 @@ body {
     position: relative;
     transition: transform 0.3s ease-in-out;
     line-height: 1.6; /* Improves spacing between lines */
+    color:gold;
 }
 
 /* Hover Effect */
