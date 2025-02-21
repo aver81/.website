@@ -365,16 +365,7 @@ h1, h2, h3, p, a, span {
     padding-left: 70px; /* Adjust for line and circles */
 }
 
-/* Vertical Line for Education */
-.education-line {
-    position: absolute;
-    left: 40px;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    background-color: gold;
-    z-index: 1;
-}
+
 
 /* Individual Education Box */
 .education-box {
@@ -416,15 +407,7 @@ h1, h2, h3, p, a, span {
     margin-bottom: 8px; /* Adds space below each paragraph */
 }
 
-/* Solid Circle Nodes */
-.education-node {
-    width: 15px;
-    height: 15px;
-    background-color: gold;
-    border-radius: 50%;
-    position: absolute;
-    left: 50px;
-}
+
 #about-me {
     padding: 60px 10%;
     text-align: center;
