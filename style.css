@@ -325,7 +325,7 @@ h1, h2, h3, p, a, span {
 /* Contact Links */
 .contact-link {
     font-size: 40px;
-    color: white;
+    color: gold;
     text-decoration: none;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
