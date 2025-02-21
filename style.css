@@ -135,6 +135,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    margin-bottom: 30px;
 }
 
 /* Vertical Line Running Through the Experiences */
@@ -382,9 +383,10 @@ body {
 /* Education Content */
 .education-box h3 {
     font-size: 24px;
+    text-align: center;
     font-weight: bold;
     color: gold;
-    margin-bottom: 10px; /* Adds space below the title */
+    margin-bottom: 30px; /* Adds space below the title */
 }
 
 .education-box p {
