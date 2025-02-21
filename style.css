@@ -253,6 +253,7 @@ h1, h2, h3, p, a, span {
     padding: 80px 10%;
     text-align: center;
     background: black;
+    
 }
 
 /* Projects Container (3-Column Layout) */
@@ -272,6 +273,7 @@ h1, h2, h3, p, a, span {
     padding: 30px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
+    margin-top: 30px;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
 }
@@ -380,7 +382,7 @@ h1, h2, h3, p, a, span {
     text-align: center;
     margin-bottom: 50px;
     margin-top: 50px;
-    margin-left: 90px;
+    margin-left: 100px;
     position: relative;
     transition: transform 0.3s ease-in-out;
     line-height: 1.6; /* Improves spacing between lines */
