@@ -249,7 +249,7 @@ body {
 /* Individual Project Cards */
 .project-card {
     flex: 1; /* Makes all three sections equal width */
-    background: linear-gradient(135deg, #0077b6, #48cae4); /* Gradient background */
+    background: black; /* Gradient background */
     color: gold;
     padding: 30px;
     border-radius: 10px;
