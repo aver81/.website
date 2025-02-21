@@ -177,6 +177,7 @@ h1, h2, h3, p, a, span {
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
     text-align: left;
+    margin-top: 10px;
     margin-bottom: 80px; /* Increased space between experiences */
     position: relative;
     transition: transform 0.3s ease-in-out;
