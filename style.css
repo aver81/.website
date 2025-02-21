@@ -400,8 +400,8 @@ h1, h2, h3, p, a, span {
     font-size: 24px;
     text-align: center;
     font-weight: bold;
-    color: green;
-    margin-bottom: 30px; /* Adds space below the title */
+    color: orange;
+    margin-bottom: 10px; /* Adds space below the title */
     width: 60%;
 }
 
@@ -409,7 +409,7 @@ h1, h2, h3, p, a, span {
     font-size: 16px;
     color: gold;
     margin-bottom: 8px; /* Adds space below each paragraph */
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 
