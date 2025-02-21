@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 step++;
                 animateForwardPropagation();
-            }, 300);
+            }, 150);
         } else {
             document.getElementById("intro").classList.add("fade-out");
             setTimeout(() => document.getElementById("intro").style.display = "none", 1500);
