@@ -1,4 +1,26 @@
 /* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lora:wght@400&display=swap');
+
+
+header h1 {
+    font-family: 'Montserrat', sans-serif; /* Modern and bold */
+    font-size: 3rem; /* Adjust size */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: gold; /* Matches theme */
+    text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.5); /* Soft glow */
+}
+
+.typewriter, header p {
+    font-family: 'Lora', serif; /* Classy and elegant */
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 1px;
+}
+
+
 * {
     margin: 0;
     padding: 0;
