@@ -380,7 +380,7 @@ h1, h2, h3, p, a, span {
     text-align: center;
     margin-bottom: 50px;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 90px;
     position: relative;
     transition: transform 0.3s ease-in-out;
     line-height: 1.6; /* Improves spacing between lines */
