@@ -64,7 +64,6 @@ h1, h2, h3, p, a, span {
     font-family: 'Montserrat', sans-serif; /* Modern and bold */
     font-size: 3rem; /* Adjust size */
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 2px;
     color: gold; /* Matches theme */
     text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.5); /* Soft glow */
