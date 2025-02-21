@@ -258,21 +258,22 @@ h1, h2, h3, p, a, span {
 /* Projects Container (3-Column Layout) */
 .projects-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centers project cards */
     align-items: stretch;
     gap: 20px; /* Space between projects */
-    top: 10;
+    position: relative;
+    top: 10px; /* Moves container down */
 }
 
 /* Individual Project Cards */
 .project-card {
-    flex: 1; /* Makes all three sections equal width */
-    background: black; /* Gradient background */
+    flex: 1;
+    max-width: 350px; /* Prevents stretching on large screens */
+    background: rgba(255, 255, 255, 0.1);
     color: gold;
     padding: 30px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
-    background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
 }
 
@@ -285,7 +286,7 @@ h1, h2, h3, p, a, span {
 /* Project Content */
 .project-content h3 {
     font-size: 22px;
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* Reduced excessive spacing */
 }
 
 .project-content p {
@@ -304,6 +305,7 @@ h1, h2, h3, p, a, span {
         width: 100%;
     }
 }
+
 
 /* Contact Section */
 #contact {
