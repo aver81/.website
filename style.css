@@ -267,8 +267,8 @@ h1, h2, h3, p, a, span {
 
 /* Individual Project Cards */
 .project-card {
-    flex: 1;
-    max-width: 350px; /* Prevents stretching on large screens */
+       flex: 1 1 45%;
+    max-width: 500px; /* Prevents stretching on large screens */
     background: rgba(255, 255, 255, 0.1);
     color: gold;
     padding: 30px;
