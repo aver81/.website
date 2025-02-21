@@ -177,7 +177,6 @@ h1, h2, h3, p, a, span {
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
     text-align: left;
-    margin-top: 10px;
     margin-bottom: 80px; /* Increased space between experiences */
     position: relative;
     transition: transform 0.3s ease-in-out;
@@ -254,7 +253,6 @@ h1, h2, h3, p, a, span {
     padding: 80px 10%;
     text-align: center;
     background: black;
-    
 }
 
 /* Projects Container (3-Column Layout) */
@@ -274,7 +272,6 @@ h1, h2, h3, p, a, span {
     padding: 30px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
-    margin-top: 30px;
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
 }
@@ -357,15 +354,15 @@ h1, h2, h3, p, a, span {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    text-align: center;
 }
 
 /* Education Container */
 .education-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 70px; /* Adjust for line and circles */
 }
 
 
@@ -382,12 +379,12 @@ h1, h2, h3, p, a, span {
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.3);
     text-align: center;
     margin-bottom: 50px;
-    margin-top: 0px;
-    margin-left: 120px;
+    margin-top: 50px;
+    margin-left: 90px;
     position: relative;
     transition: transform 0.3s ease-in-out;
     line-height: 1.6; /* Improves spacing between lines */
-    color:green;
+    color:gold;
 }
 
 /* Hover Effect */
@@ -395,31 +392,19 @@ h1, h2, h3, p, a, span {
     transform: scale(1.05);
 }
 
-#education h2 {
-    font-size: 36px;
-    text-align: center;
-    font-weight: bold;
-    color: red;
-    margin-bottom: 60px; /* Adds space below the title */
-    width: 60%;
-}
-
-
 /* Education Content */
 .education-box h3 {
     font-size: 24px;
     text-align: center;
     font-weight: bold;
-    color: orange;
-    margin-bottom: 10px; /* Adds space below the title */
-    width: 60%;
+    color: gold;
+    margin-bottom: 30px; /* Adds space below the title */
 }
 
 .education-box p {
     font-size: 16px;
-    color: gold;
+    color: white;
     margin-bottom: 8px; /* Adds space below each paragraph */
-    margin-left: 80px;
 }
 
 
@@ -456,6 +441,5 @@ h1, h2, h3, p, a, span {
     border-radius: 50%; /* Makes it circular */
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Gold glow effect */
     transition: transform 0.3s ease-in-out;
-    color: gold;
-    
+
 }
