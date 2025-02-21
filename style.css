@@ -442,6 +442,7 @@ h1, h2, h3, p, a, span {
     font-size: 18px;
     line-height: 1.6;
     text-align: left;
+    color: gold;
 }
 
 /* About Me Image */
@@ -451,4 +452,5 @@ h1, h2, h3, p, a, span {
     border-radius: 50%; /* Makes it circular */
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.5); /* Gold glow effect */
     transition: transform 0.3s ease-in-out;
+    
 }
