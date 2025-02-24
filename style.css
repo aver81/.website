@@ -446,50 +446,49 @@ h1, h2, h3, p, a, span {
 
 }
 
-/* Hero Section Styling */
-#skills-hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+/* Skills Section */
+#skills {
     text-align: center;
-    color: white;
-    padding: 20px;
+    padding: 50px 20px;
+    background-color: #f8f9fa;
 }
 
-.hero-content {
-    max-width: 600px;
-}
-
-.hero-content h2 {
+#skills h2 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
+/* Skill Card */
 .skill-card {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
+    background: #ffffff;
     border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .skill-card:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Skill Content */
+.skill-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skill-content p {
+    font-size: 1rem;
+    color: #555;
 }
