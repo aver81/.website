@@ -362,9 +362,9 @@ h1, h2, h3, p, a, span {
 .education-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;   /* center children */
     position: relative;
-    padding-left: 70px; /* Adjust for line and circles */
+    padding-left: 0;       /* remove left push */
 }
 
 
@@ -374,20 +374,19 @@ h1, h2, h3, p, a, span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: min(800px, 90%);  /* responsive centered width */
     background: rgba(255, 255, 255, 0.1);
-    padding: 25px;  /* Increased padding for better spacing */
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.3);
     text-align: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    margin-left: 90px;
+    margin: 50px auto;       /* center horizontally */
     position: relative;
     transition: transform 0.3s ease-in-out;
-    line-height: 1.6; /* Improves spacing between lines */
-    color:gold;
+    line-height: 1.6;
+    color: gold;
 }
+
 
 /* Hover Effect */
 .education-box:hover {
