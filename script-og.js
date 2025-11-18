@@ -1,9 +1,6 @@
-// Neural network intro + skill card fade-in
-document.addEventListener("DOMContentLoaded", function () {
-    const intro = document.getElementById("intro");
-    const canvas = document.getElementById("neuralCanvas");
-    if (!intro || !canvas) return;
 
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("neuralCanvas");
     const ctx = canvas.getContext("2d");
 
     function resizeCanvas() {
@@ -13,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Same layered layout as your original animation
     const layers = [
         { x: 100, nodes: 4 },
         { x: 300, nodes: 6 },
@@ -26,21 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let networkNodes = [];
     let edges = [];
 
-    // Build nodes
     layers.forEach(layer => {
         let spacing = canvas.height / (layer.nodes + 1);
         let nodes = [];
         for (let i = 0; i < layer.nodes; i++) {
             nodes.push({
                 x: layer.x,
-                y: spacing * (i + 1),
+                y: (i + 1) * spacing,
                 active: false
             });
         }
         networkNodes.push(nodes);
     });
 
-    // Fully connect layers
     for (let i = 0; i < networkNodes.length - 1; i++) {
         networkNodes[i].forEach(nodeA => {
             networkNodes[i + 1].forEach(nodeB => {
@@ -53,13 +47,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const ANIMATION_DURATION = 600;  // ms: actual propagation
-    const FADE_DURATION = 400;       // ms: CSS fade-out = total ~1s
-
-    function draw() {
+    let step = 0;
+    function animateForwardPropagation() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw edges
         edges.forEach(edge => {
             ctx.beginPath();
             ctx.moveTo(edge.from.x, edge.from.y);
@@ -69,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.stroke();
         });
 
-        // Draw nodes
         networkNodes.forEach(layer => {
             layer.forEach(node => {
                 ctx.beginPath();
@@ -80,54 +70,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 ctx.stroke();
             });
         });
-    }
 
-    let startTime = null;
-
-    function animate(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
-
-        // Reset all actives
-        networkNodes.forEach(layer => {
-            layer.forEach(node => (node.active = false));
-        });
-        edges.forEach(edge => (edge.active = false));
-
-        // Activate layers progressively left → right over ANIMATION_DURATION
-        const layerCount = networkNodes.length || 1;
-        networkNodes.forEach((layer, layerIdx) => {
-            const threshold = layerIdx / (layerCount - 1 || 1); // avoid div/0
-            if (progress >= threshold) {
-                layer.forEach(node => (node.active = true));
-            }
-        });
-
-        // Edge is active if both ends are active
-        edges.forEach(edge => {
-            if (edge.from.active && edge.to.active) {
-                edge.active = true;
-            }
-        });
-
-        draw();
-
-        if (elapsed < ANIMATION_DURATION) {
-            requestAnimationFrame(animate);
-        } else {
-            // Animation done: fade out intro and then remove it
-            intro.classList.add("fade-out"); // uses your existing CSS selector #intro.fade-out
+        if (step < networkNodes.length) {
+            networkNodes[step].forEach(node => node.active = true);
             setTimeout(() => {
-                intro.style.display = "none"; // removes the full-screen gap
-            }, FADE_DURATION);
+                step++;
+                animateForwardPropagation();
+            }, 150);
+        } else {
+            document.getElementById("intro").classList.add("fade-out");
+            setTimeout(() => document.getElementById("intro").style.display = "none", 1500);
         }
     }
 
-    requestAnimationFrame(animate);
+    animateForwardPropagation();
 });
 
-// Your existing skill-card fade-in (kept as-is)
 document.addEventListener("DOMContentLoaded", () => {
     const skillCards = document.querySelectorAll(".skill-card");
 
