@@ -446,6 +446,7 @@ h1, h2, h3, p, a, span {
 
 }
 
+
 /* Skills Section */
 #skills {
     text-align: center;
@@ -459,6 +460,7 @@ h1, h2, h3, p, a, span {
     color:gold;
 }
 
+/*
 /* Skills Container */
 .skills-container {
     display: flex;
@@ -497,5 +499,75 @@ h1, h2, h3, p, a, span {
     font-size: 1rem;
     color: gold;
 }
+*/
 
+/* Skills Section */
+
+.skills-tagline {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: rgba(255, 215, 0, 0.8);
+}
+
+/* Make the skills a responsive grid */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    padding: 30px 20px 10px;
+    justify-items: stretch;
+}
+
+/* Skill Card – keep using this class so the JS fade-in still works */
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-align: left;
+    color: gold;
+    opacity: 0;                    /* so the JS fade-in is visible */
+    transform: translateY(10px);   /* starting offset for animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover: subtle, not too flashy */
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.7);
+}
+
+.skill-content h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    color: gold;
+}
+
+/* Bullet list for skills inside each card */
+.skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skill-list li {
+    font-size: 0.95rem;
+    color: gold;
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 14px;
+}
+
+/* Small gold dot as a custom bullet */
+.skill-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 215, 0, 0.9);
+}
 
