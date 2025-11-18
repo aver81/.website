@@ -1,4 +1,4 @@
-// Neural network intro + skill card fade-in
+// Neural network intro, with original timing preserved
 document.addEventListener("DOMContentLoaded", function () {
     const intro = document.getElementById("intro");
     const canvas = document.getElementById("neuralCanvas");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Same layered layout as your original animation
+    // Same layer layout as your original script
     const layers = [
         { x: 100, nodes: 4 },
         { x: 300, nodes: 6 },
@@ -53,8 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const ANIMATION_DURATION = 600;  // ms: actual propagation
-    const FADE_DURATION = 400;       // ms: CSS fade-out = total ~1s
+    // === TIMING: match original ===
+    const STEP_DURATION = 150;                         // original setTimeout delay
+    const ANIMATION_DURATION = STEP_DURATION * layers.length; // 150 * 6 = 900 ms
+    const FADE_DURATION = 1500;                        // original fade-out before display:none
+
+    let startTime = null;
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -82,23 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    let startTime = null;
-
     function animate(timestamp) {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
 
-        // Reset all actives
+        // Reset all actives each frame
         networkNodes.forEach(layer => {
             layer.forEach(node => (node.active = false));
         });
         edges.forEach(edge => (edge.active = false));
 
-        // Activate layers progressively left → right over ANIMATION_DURATION
+        // Activate layers left → right according to progress
         const layerCount = networkNodes.length || 1;
         networkNodes.forEach((layer, layerIdx) => {
-            const threshold = layerIdx / (layerCount - 1 || 1); // avoid div/0
+            if (layerCount === 1) {
+                // edge case, but not used here
+                layer.forEach(node => (node.active = true));
+                return;
+            }
+            const threshold = layerIdx / (layerCount - 1); // 0, 0.2, ..., 1
             if (progress >= threshold) {
                 layer.forEach(node => (node.active = true));
             }
@@ -116,10 +123,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (elapsed < ANIMATION_DURATION) {
             requestAnimationFrame(animate);
         } else {
-            // Animation done: fade out intro and then remove it
-            intro.classList.add("fade-out"); // uses your existing CSS selector #intro.fade-out
+            // Done: behave like original script
+            intro.classList.add("fade-out"); // uses your existing #intro.fade-out CSS
             setTimeout(() => {
-                intro.style.display = "none"; // removes the full-screen gap
+                intro.style.display = "none"; // removes full-screen overlay, no gap
             }, FADE_DURATION);
         }
     }
@@ -127,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(animate);
 });
 
-// Your existing skill-card fade-in (kept as-is)
+// Keep your original skill-card fade-in
 document.addEventListener("DOMContentLoaded", () => {
     const skillCards = document.querySelectorAll(".skill-card");
 
