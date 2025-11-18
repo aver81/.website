@@ -1,0 +1,206 @@
+//TODO: fix the layout so that once the animation ends there is no white space at the top of the website
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aayush Verma | Data Scientist Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-v2.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Neural Intro -->
+  <section id="intro" class="intro-overlay">
+    <canvas id="neuralCanvas"></canvas>
+    <div class="intro-text">
+      <h1>Aayush Verma</h1>
+      <p>Data Scientist · Machine Learning</p>
+    </div>
+  </section>
+
+  <div id="page-content" class="split-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <div class="avatar">AV</div>
+          <h1>Aayush Verma</h1>
+          <p class="tagline">Data Scientist & ML Engineer</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Summary</h2>
+          <p>
+            I design and ship data products that bridge modeling and business decisions,
+            with experience in supply chain, forecasting, and NLP on real world data.
+          </p>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Details</h2>
+          <ul class="sidebar-list">
+            <li><span>Location</span> Texas, USA</li>
+            <li><span>Email</span> youremail@example.com</li>
+            <li><span>LinkedIn</span> /your-profile</li>
+            <li><span>GitHub</span> /your-username</li>
+          </ul>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main column -->
+    <main class="main-column">
+      <section id="experience" class="section reveal">
+        <h2>Experience</h2>
+        <article class="exp-item">
+          <header>
+            <div>
+              <h3>Data Scientist</h3>
+              <p class="company">Mu Sigma</p>
+            </div>
+            <div class="exp-meta">
+              <span class="location">Bengaluru, India</span>
+              <span class="dates">2020 - 2023</span>
+            </div>
+          </header>
+          <ul>
+            <li>Built and improved demand forecasting models for EMEA retail, working with noisy and incomplete data.</li>
+            <li>Partnered with stakeholders to define metrics and backtesting strategies for deployment decisions.</li>
+            <li>Designed automated reporting and dashboards to surface model performance and exceptions.</li>
+          </ul>
+        </article>
+
+        <article class="exp-item">
+          <header>
+            <div>
+              <h3>Data Science Intern</h3>
+              <p class="company">PACCAR</p>
+            </div>
+            <div class="exp-meta">
+              <span class="location">Texas, USA</span>
+              <span class="dates">2024 - Present</span>
+            </div>
+          </header>
+          <ul>
+            <li>Working on classification of warranty claims into software and non software issues using text fields.</li>
+            <li>Exploring scalable approaches with Polars, cloud storage, and containerized experiments.</li>
+            <li>Communicating findings via short write ups and visualizations for engineering teams.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="projects" class="section reveal">
+        <h2>Projects</h2>
+        <article class="project-item">
+          <header>
+            <h3>Warranty Claim Classifier</h3>
+            <p class="project-meta">Python · NLP · Cloud</p>
+          </header>
+          <p>
+            Classifier to flag software related claims from warranty data, combining domain specific acronyms,
+            repair story text, and failure codes. Focus on interpretability and business friendly metrics.
+          </p>
+        </article>
+
+        <article class="project-item">
+          <header>
+            <h3>Forecasting Daily Series</h3>
+            <p class="project-meta">R · Prophet · Time series</p>
+          </header>
+          <p>
+            Built multiple forecasting baselines and advanced models for a long historical daily series, including
+            robust trend-seasonal decomposition and scenario focused visualizations.
+          </p>
+        </article>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <h2>Skills</h2>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="skill-label">Languages</span>
+            <span>Python, R, SQL</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">ML & Stats</span>
+            <span>SVMs, Tree based models, Regression, Time series</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Data</span>
+            <span>Pandas, Polars, ETL, Exploratory analysis</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Cloud & Tools</span>
+            <span>AWS, Docker, Git, Jupyter, VS Code</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Communication</span>
+            <span>Technical writing, presentations, teaching</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section reveal">
+        <h2>Education</h2>
+        <article class="edu-item">
+          <h3>MS in Data Science</h3>
+          <p class="edu-meta">University of Maryland · 2024 - 2026</p>
+          <p>Coursework in machine learning, statistics, and data engineering.</p>
+        </article>
+
+        <article class="edu-item">
+          <h3>Previous Degree</h3>
+          <p class="edu-meta">Details here · Year - Year</p>
+          <p>Short description of focus and achievements.</p>
+        </article>
+      </section>
+
+      <section id="about" class="section reveal">
+        <h2>About</h2>
+        <p>
+          I enjoy work that blends structured thinking with practical constraints. I like exploring questions
+          like: what uncertainty matters most here, and how can we communicate it clearly. My projects and roles
+          lean on this combination of modeling and storytelling.
+        </p>
+        <p>
+          When not reading about ML, I follow Formula 1, play badminton, and experiment with small coding projects.
+        </p>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <h2>Contact</h2>
+        <p>Best way to reach me is through email or LinkedIn.</p>
+        <ul class="contact-list">
+          <li><span>Email</span> youremail@example.com</li>
+          <li><span>LinkedIn</span> linkedin.com/in/your-profile</li>
+          <li><span>GitHub</span> github.com/your-username</li>
+        </ul>
+      </section>
+
+      <footer class="main-footer">
+        <p>© <span id="year"></span> Aayush Verma · Focused on useful models</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
+
+</body>
+</html>
