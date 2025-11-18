@@ -199,317 +199,251 @@
 </body>
 </html>
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Aayush Verma | Data Scientist & ML Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aayush Verma | Data Scientist</title>
-  <link rel="stylesheet" href="style-refined.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style-v1.css" />
   <script defer src="script.js"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
 </head>
 <body>
-  <!-- Intro Neural Animation -->
-  <section id="intro">
+
+  <!-- Neural Intro Overlay -->
+  <section id="intro" class="intro-overlay">
     <canvas id="neuralCanvas"></canvas>
     <div class="intro-text">
-      <h1 id="typing-text"></h1>
-      <p class="intro-subtitle"></p>
+      <h1>Aayush Verma</h1>
+      <p>Data Science · Machine Learning · Analytics</p>
     </div>
   </section>
 
-  <header class="site-header">
-    <nav class="nav container">
-      <div class="nav-logo">Aayush Verma</div>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Main content -->
+  <div id="page-content">
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero section container reveal">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <p class="eyebrow">Data Scientist & ML Engineer</p>
-          <h1>Turning data into product decisions.</h1>
-          <p class="hero-subtitle">
-            I build end-to-end ML and analytics solutions across supply chain,
-            finance, and experimentation.
-          </p>
-          <div class="hero-tags">
-            <span>Machine Learning</span>
-            <span>Time Series</span>
-            <span>Experimentation</span>
-            <span>MLOps</span>
-          </div>
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-ghost">
-              <i class="fas fa-paper-plane"></i> Contact
-            </a>
-          </div>
-        </div>
-        <div class="hero-side">
-          <div class="hero-card">
-            <h2>Currently</h2>
-            <p>MS Data Science @ UMD · Warranty analytics @ PACCAR</p>
-            <div class="hero-metrics">
-              <div>
-                <span class="metric">3+</span>
-                <span class="metric-label">Years Experience</span>
-              </div>
-              <div>
-                <span class="metric">15M+</span>
-                <span class="metric-label">Claims Analyzed</span>
-              </div>
-              <div>
-                <span class="metric">4.0</span>
-                <span class="metric-label">GPA (UMD)</span>
-              </div>
+    <header class="site-header">
+      <div class="logo">AV</div>
+      <nav class="site-nav">
+        <a href="#home">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+
+      <!-- Hero -->
+      <section id="home" class="hero section reveal">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-kicker">Data Scientist & Machine Learning Engineer</p>
+            <h1>Building reliable models for messy, real data.</h1>
+            <p class="hero-sub">
+              I work on end to end machine learning pipelines, from data cleaning and feature engineering
+              to modeling, evaluation, and deployment. My experience spans supply chain analytics,
+              forecasting, and warranty NLP.
+            </p>
+            <div class="hero-cta">
+              <a href="#projects" class="btn primary">View projects</a>
+              <a href="#contact" class="btn ghost">Get in touch</a>
             </div>
           </div>
-          <p class="hero-note">
-            Focused on creating robust, production-ready ML pipelines.
-          </p>
+          <div class="hero-side">
+            <div class="hero-card">
+              <h2>Current Focus</h2>
+              <ul>
+                <li>Time series forecasting & uncertainty</li>
+                <li>Generative AI agents & retrieval</li>
+                <li>Scalable ML on cloud</li>
+              </ul>
+            </div>
+            <div class="hero-meta">
+              <p><span>Location</span> Texas, USA</p>
+              <p><span>Open to</span> DS / ML roles · Internships</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section container reveal">
-      <header class="section-header">
-        <h2>Experience</h2>
-        <p>End-to-end ownership across analytics, ML, and delivery.</p>
-      </header>
-      <div class="timeline">
-        <div class="timeline-line"></div>
-
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <header>
-              <h3>Data Science Intern · PACCAR</h3>
-              <span class="meta">2025 · Texas, USA</span>
-            </header>
-            <p>
-              Built NLP models to classify warranty claims and surface
-              software-related issues across millions of records.
-            </p>
-            <ul>
-              <li>Designed text pipelines on AWS for 15M+ warranty claims.</li>
-              <li>
-                Improved software-issue recall using domain-specific
-                embeddings and SVM/boosted trees.
-              </li>
-              <li>
-                Collaborated with engineers and analysts to validate patterns
-                and reduce false positives.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <header>
-              <h3>Decision Scientist · Mu Sigma</h3>
-              <span class="meta">~2 years · Bengaluru, India</span>
-            </header>
-            <p>
-              Partnered with a global sports retailer to optimize EMEA supply
-              chain and demand forecasting.
-            </p>
-            <ul>
-              <li>
-                Developed STO replenishment strategy for UK warehouses, reducing
-                stockouts and overstock.
-              </li>
-              <li>
-                Built time-series models for Spain, Portugal & France digital
-                demand.
-              </li>
-              <li>Worked closely with client teams for deployment and tracking.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <header>
-              <h3>Engineer · TCS</h3>
-              <span class="meta">Banking client · India</span>
-            </header>
-            <p>
-              Contributed to large-scale web migration projects for a leading
-              public sector bank.
-            </p>
-            <ul>
-              <li>
-                Migrated legacy screens and workflows with a focus on
-                reliability.
-              </li>
-              <li>Collaborated with cross-functional teams across time zones.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section container reveal">
-      <header class="section-header">
-        <h2>Selected Projects</h2>
-        <p>Hands-on work that reflects how I think about data and systems.</p>
-      </header>
-      <div class="cards-grid">
-        <article class="card">
-          <h3>Warranty Claim Classifier</h3>
-          <p class="card-subtitle">
-            ML pipeline to detect software-related truck warranty issues.
-          </p>
-          <p>
-            Built end-to-end text classification using domain-specific
-            preprocessing, embeddings, and interpretable models to support
-            quality engineering.
-          </p>
-          <p class="tech">Python · NLP · SVM · AWS · Polars</p>
-        </article>
-
-        <article class="card">
-          <h3>MNIST Dimensionality Reduction</h3>
-          <p class="card-subtitle">
-            Comparing Kernel PCA & Laplacian Eigenmaps for SVM performance.
-          </p>
-          <p>
-            Evaluated how manifold learning vs kernel methods impact downstream
-            classification, tracking precision/recall & F1 across multiple
-            digits.
-          </p>
-          <p class="tech">Python · SVM · Kernel PCA · Laplacian Eigenmaps</p>
-        </article>
-
-        <article class="card">
-          <h3>Time Series Forecasting</h3>
-          <p class="card-subtitle">
-            Long-horizon forecasts with Prophet, ARIMA, and STL.
-          </p>
-          <p>
-            Implemented multiple forecasting approaches, comparing accuracy,
-            stability, and interpretability for business time series.
-          </p>
-          <p class="tech">R · Prophet · ARIMA · Visualization</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section container reveal">
-      <header class="section-header">
-        <h2>Skills</h2>
-        <p>Tools I use regularly on real projects.</p>
-      </header>
-      <div class="skills-grid">
-        <article class="skill-card">
-          <h3>Core ML & Analytics</h3>
-          <p>Scikit-learn, CatBoost, XGBoost, SVMs, clustering, feature engineering.</p>
-        </article>
-        <article class="skill-card">
-          <h3>Data & Engineering</h3>
-          <p>Python, R, SQL, Polars, Pandas, PySpark, Docker.</p>
-        </article>
-        <article class="skill-card">
-          <h3>Time Series & Causal</h3>
-          <p>ARIMA, Prophet, STL, experimentation basics, uplift thinking.</p>
-        </article>
-        <article class="skill-card">
-          <h3>Visualization & Apps</h3>
-          <p>Matplotlib, Plotly, ggplot2, Streamlit, basic front-end (HTML/CSS/JS).</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="section container reveal">
-      <header class="section-header">
-        <h2>Education</h2>
-      </header>
-      <div class="cards-grid">
-        <article class="card">
-          <h3>M.S. in Data Science</h3>
-          <p class="card-subtitle">University of Maryland, College Park</p>
-          <p>Expected 2026 · GPA: 4.0</p>
-          <p class="tech">Advanced ML · Time Series · Data Systems</p>
-        </article>
-        <article class="card">
-          <h3>Bachelor’s in Engineering</h3>
-          <p class="card-subtitle">Details as you prefer</p>
-          <p>Add key coursework or achievements here.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section container reveal">
-      <header class="section-header">
-        <h2>About</h2>
-      </header>
-      <div class="about-grid">
-        <div>
-          <p>
-            I enjoy working at the intersection of data, engineering, and
-            product. I’ve spent time in consulting, analytics, and now
-            graduate research, which helps me translate messy business problems
-            into concrete ML and analytics work.
-          </p>
-          <p>
-            Outside of work, you’ll find me watching F1, playing badminton, or
-            tinkering with new ML libraries and infrastructure tools.
-          </p>
+      <!-- Experience -->
+      <section id="experience" class="section reveal">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>Roles where I learned to ship value, not just models.</p>
         </div>
-      </div>
-    </section>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <h3>Data Scientist</h3>
+                <span class="company">Mu Sigma</span>
+                <span class="dates">2020 - 2023</span>
+              </div>
+              <ul>
+                <li>Worked on demand forecasting and supply chain analytics for global clients.</li>
+                <li>Designed experiments and models that improved forecast accuracy and inventory turns.</li>
+                <li>Collaborated with business stakeholders to translate insights into decisions.</li>
+              </ul>
+            </div>
+          </article>
 
-    <!-- Contact -->
-    <section id="contact" class="section container reveal">
-      <header class="section-header">
-        <h2>Contact</h2>
-        <p>Open to roles in data science, ML, and analytics.</p>
-      </header>
-      <div class="contact">
-        <p>Email: <a href="mailto:aayush@example.com">aayush@example.com</a></p>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com" target="_blank">
-            <i class="fab fa-linkedin"></i>
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <h3>Data Science Intern</h3>
+                <span class="company">PACCAR</span>
+                <span class="dates">2024 - Present</span>
+              </div>
+              <ul>
+                <li>Building NLP models on warranty data to detect software related issues.</li>
+                <li>Prototyping data pipelines with Python, Polars, and cloud infrastructure.</li>
+                <li>Communicating model findings to engineering and product teams.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Add more items as needed -->
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section reveal">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <p>Selected work combining modeling, engineering, and communication.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>MNIST Digit Classification</h3>
+            <p>
+              Compared SVMs with kernel PCA and Laplacian Eigenmaps, evaluating precision, recall, and F1
+              across multiple dimensionality reductions.
+            </p>
+            <p class="project-tech">Python · scikit-learn</p>
+            <div class="project-links">
+              <a href="#" class="text-link">GitHub</a>
+              <a href="#" class="text-link">Report</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Warranty NLP Classifier</h3>
+            <p>
+              Built a classifier to flag software related warranty claims using repair stories and
+              domain acronyms, with focus on interpretability.
+            </p>
+            <p class="project-tech">Python · NLP · Cloud</p>
+            <div class="project-links">
+              <a href="#" class="text-link">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Time Series Forecasting</h3>
+            <p>
+              Experiments with ARIMA, Prophet, and advanced models on long horizon daily data, including
+              uncertainty estimation and backtesting.
+            </p>
+            <p class="project-tech">R · Prophet · Time series</p>
+            <div class="project-links">
+              <a href="#" class="text-link">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section reveal">
+        <div class="section-header">
+          <h2>Skills</h2>
+          <p>Tools I reach for most often.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Programming</h3>
+            <p>Python, R, SQL</p>
+          </div>
+          <div class="skill-card">
+            <h3>ML & Stats</h3>
+            <p>Scikit-learn, XGBoost, SVMs, Time series</p>
+          </div>
+          <div class="skill-card">
+            <h3>Data & Cloud</h3>
+            <p>Pandas, Polars, AWS, Docker</p>
+          </div>
+          <div class="skill-card">
+            <h3>Visualization</h3>
+            <p>Matplotlib, ggplot2, dashboards</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section reveal">
+        <div class="section-header">
+          <h2>About</h2>
+          <p>A brief snapshot behind the resume.</p>
+        </div>
+        <div class="about-layout">
+          <div class="about-text">
+            <p>
+              I enjoy working at the intersection of rigorous analysis and practical decision making.
+              My work combines classical statistics, modern ML, and a strong focus on communicating
+              uncertainty to non technical stakeholders.
+            </p>
+            <p>
+              Outside of work, I follow Formula 1, play badminton, and like exploring coffee places.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section reveal">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Happy to discuss roles, collaborations, or ideas.</p>
+        </div>
+        <div class="contact-grid">
+          <a href="mailto:youremail@example.com" class="contact-item">
+            <span>Email</span>
+            <p>youremail@example.com</p>
           </a>
-          <a href="https://github.com" target="_blank">
-            <i class="fab fa-github"></i>
+          <a href="https://www.linkedin.com" class="contact-item" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <p>linkedin.com/in/your-profile</p>
+          </a>
+          <a href="https://github.com" class="contact-item" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <p>github.com/your-username</p>
           </a>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Aayush Verma</p>
-    </div>
-  </footer>
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Aayush Verma · Built with clean, minimal code</p>
+    </footer>
+  </div>
+
+  <script>
+    // simple year update
+    document.addEventListener("DOMContentLoaded", () => {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
