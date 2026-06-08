@@ -30,7 +30,7 @@ Skills:
 - BI and analytics: Tableau, Power BI, Streamlit, KPI reporting, dashboarding, data storytelling
 
 Education:
-- MS in Data Science, University of Maryland, College Park, Aug 2024 to May 2026, GPA 4.0
+- MS in Data Science, University of Maryland, College Park, Aug 2024 to May 2026, GPA 3.97
 - B.Tech in Electronics and Communications Engineering, IoT and Sensors specialization, Vellore Institute of Technology, Jun 2016 to Jun 2020
 
 Projects:
