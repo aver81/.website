@@ -48,6 +48,22 @@ function sanitizeMessages(messages) {
     .slice(-8);
 }
 
+function extractResponseText(response) {
+  if (typeof response.output_text === "string" && response.output_text.trim()) {
+    return response.output_text.trim();
+  }
+
+  const parts = [];
+  for (const item of response.output ?? []) {
+    for (const content of item.content ?? []) {
+      if (typeof content.text === "string") parts.push(content.text);
+      if (typeof content.output_text === "string") parts.push(content.output_text);
+    }
+  }
+
+  return parts.join("\n").trim();
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -75,7 +91,7 @@ export default async function handler(req, res) {
         reasoning: { effort: "low" },
         instructions: SYSTEM_PROMPT,
         input: messages,
-        max_output_tokens: 350,
+        max_output_tokens: 700,
       }),
     });
 
@@ -86,8 +102,9 @@ export default async function handler(req, res) {
     }
 
     const response = await openAIResponse.json();
-    const reply = response.output_text?.trim();
+    const reply = extractResponseText(response);
     if (!reply) {
+      console.error("OpenAI returned no text output:", JSON.stringify(response).slice(0, 2000));
       return res.status(502).json({ error: "No reply generated" });
     }
 
