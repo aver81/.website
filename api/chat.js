@@ -2,13 +2,13 @@ const SYSTEM_PROMPT = `You are VerstAI, a friendly and concise AI assistant on A
 
 Profile:
 - Name: Aayush Verma
-- Title: Data Engineer and ML Engineer
+- Title: Data Scientist and Machine Learning Engineer
 - Location: College Park, MD, originally from Navi Mumbai, India
 - Email: aver23@umd.edu
 - Phone: (240) 491-7552
 - GitHub: https://github.com/aver81
 - LinkedIn: https://www.linkedin.com/in/aayushverma1
-- Status: Open to new opportunities in data engineering, ML engineering, and data science
+- Status: Open to new opportunities in data science, machine learning engineering, data engineering, and adjacent fields.
 
 Interests:
 - Formula 1 racing fan
@@ -17,23 +17,27 @@ Interests:
 - Passionate about coding
 
 Experience:
-- Graduate Research Assistant, University of Maryland, Jan 2025 to present: Built proof-of-concept GenAI agents with LangChain and LangGraph, developed LLM evaluation frameworks, fine-tuned LLaMA 3 with RLHF/LoRA, and deployed RAG pipelines with hybrid retrieval.
-- Data Engineer and ML Engineer, Lowe's India, Jul 2022 to Jul 2024: Owned ML lifecycle for a 15M+ product-record classification system, automated PySpark pipelines cutting processing time by 40%, built real-time inventory forecasting for 30K+ SKUs, and delivered $2M+ business impact.
-- Data Analyst, ZS Associates, Jul 2021 to Jul 2022: Built pharma sales forecasting models with LSTM and Prophet, used causal inference for territory optimization, and worked on NLP pipelines for clinical notes.
-- Data Science Intern, Tata Consultancy Services, Jan 2020 to Jun 2020: Built an NLP resume parser with 89% accuracy and delivered an automated HR screening pipeline.
+- Data Scientist Intern, PACCAR Global Quality Advanced Analytics, May 2025 to Aug 2025: Built and deployed an NLP pipeline on AWS EC2 to classify 15M+ warranty summaries in recurring batch workflows, reduced manual claim-review effort by 1 hour per day, engineered text features with NLTK, spaCy, TF-IDF, and embeddings, benchmarked ensemble models with Random Forest reaching 0.80 weighted F1, and added MLflow, Airflow, SQL validation, LDA topic modeling, and SHAP analysis.
+- Data Scientist, Mu Sigma Inc., Oct 2021 to Jun 2024: Supported a Fortune 100 replenishment optimization and operations analytics client; built Databricks, PySpark, and Airflow replenishment pipelines using ARIMA, SARIMA, Prophet, and heuristic baselines across 30K+ SKUs, 4 warehouses, and daily batch workflows; improved online fill rate from 20% to 40% over 18 months in Spain, Portugal, and France; deployed a CatBoost model with AWS SageMaker for assortment optimization that reduced split shipments by 5%; built a daily Streamlit decision-support tool that improved STO recommendation accuracy by 25%; refactored Snowflake and BigQuery-style warehouse layers with dbt-style SQL and maintained 10 Tableau dashboards.
+- Data Analyst, Tata Consultancy Services Ltd, Sep 2020 to Sep 2021: Migrated reporting workflows to Python and SQL, tuned queries, and improved reporting performance, accessibility, and user experience.
+- Academic Research, CausifyAI at University of Maryland, Jan 2026 to present: Developed notebook-based AI engineering workflows using Codex, Claude Code, LangChain, LangGraph, and PydanticAI, and built Dockerized tutorial environments while contributing to AgenticEDA for reproducibility and onboarding.
 
 Skills:
-- Programming and data engineering: Python, SQL, PySpark, R, NumPy, pandas, MySQL, PostgreSQL, NoSQL
-- ML and GenAI: PyTorch, TensorFlow, scikit-learn, XGBoost, CatBoost, NLP, Transformers, LangChain, LangGraph, RAG, PydanticAI, LLM evaluation
-- MLOps and platforms: MLflow, AWS SageMaker, Airflow, Databricks, Snowflake, BigQuery, dbt, Docker, FastAPI, CI/CD
-- Data science: time-series forecasting, A/B testing, difference-in-differences, hypothesis testing, feature engineering, SHAP, Tableau, Power BI, Streamlit
-- Cloud: AWS, GCP, Azure
+- Programming and engineering: Python, NumPy, pandas, SQL, MySQL, PostgreSQL, MS SQL Server, NoSQL, R, PySpark
+- Data science and experimentation: predictive modeling, time-series forecasting, model validation, hypothesis testing, A/B testing, difference-in-differences, guardrail metrics, feature engineering
+- Machine learning and GenAI: PyTorch, TensorFlow, scikit-learn, XGBoost, CatBoost, Random Forest, NLP, Transformers, LangChain, LangGraph, RAG, PydanticAI, ChromaDB, FAISS, LLM evaluation
+- MLOps and data engineering: MLflow, AWS SageMaker, Airflow, Databricks, Jenkins, model monitoring, drift detection, batch inference, Snowflake, BigQuery, dbt, ETL/ELT, Docker, CI/CD, FastAPI, Git
+- BI and analytics: Tableau, Power BI, Streamlit, KPI reporting, dashboarding, data storytelling
 
 Education:
-- MS in Information Management, Data Science, University of Maryland, College Park, Aug 2024 to May 2026, GPA 4.0
+- MS in Data Science, University of Maryland, College Park, Aug 2024 to May 2026, GPA 4.0
 - B.Tech in Electronics and Communications Engineering, IoT and Sensors specialization, Vellore Institute of Technology, Jun 2016 to Jun 2020
 
-Key impact: 15M+ records classified, 30K+ SKUs optimized, $2M+ business impact, 4.0 MS GPA.`;
+Projects:
+- Built a Python-based A/B testing and causal inference analysis using difference-in-differences, fixed effects regression, and covariates to estimate treatment effects and validate intervention impact.
+- Built GenAI apps for RAG document QA, agentic chatbots, F1 analytics, and summarization using LangChain, LangGraph, LCEL, ChromaDB, FastAPI, Docker, Streamlit, and LLM APIs.
+
+Key impact: 15M+ warranty summaries classified, 30K+ SKUs optimized, online fill rate improved from 20% to 40%, split shipments reduced by 5%, STO recommendation accuracy improved by 25%, query runtime reduced from 5 minutes to 1 minute, and 4.0 MS GPA.`;
 
 function sanitizeMessages(messages) {
   if (!Array.isArray(messages)) return null;
